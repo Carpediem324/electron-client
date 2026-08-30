@@ -1,7 +1,7 @@
 {
-  "name": "electron-client",
+  "name": "algorun",
   "version": "1.0.0",
-  "description": "Simple Electron Client",
+  "description": "Desktop C++17 coding test practice runner",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -16,10 +16,19 @@
     "electron-builder": "^26.0.0"
   },
   "build": {
-    "appId": "com.example.electronclient",
-    "productName": "Electron Client",
+    "appId": "com.algorun.app",
+    "productName": "AlgoRun",
+    "extraResources": [
+      {
+        "from": "compiler",
+        "to": "compiler"
+      }
+    ],
     "win": {
       "target": "nsis"
     }
+  },
+  "dependencies": {
+    "monaco-editor": "^0.56.0"
   }
 }

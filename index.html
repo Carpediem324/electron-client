@@ -2,10 +2,44 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Electron Test</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; font-src 'self' data:;">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlgoRun</title>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <h1>Electron 실행 성공</h1>
-    <p>클라이언트 테스트입니다.</p>
+    <div class="app-shell">
+        <header class="toolbar">
+            <div>
+                <h1>AlgoRun</h1>
+                <p>C++17 practice runner</p>
+            </div>
+            <div class="run-controls">
+                <span id="status" class="status status-ready">Ready</span>
+                <span id="time" class="time">0 ms</span>
+                <button id="runButton" class="run-button" type="button">Run</button>
+            </div>
+        </header>
+
+        <main class="workspace">
+            <section class="editor-pane" aria-label="C++ editor">
+                <div id="editor"></div>
+            </section>
+
+            <section class="io-pane">
+                <label class="panel">
+                    <span>Input</span>
+                    <textarea id="stdin" spellcheck="false">10 20</textarea>
+                </label>
+                <label class="panel">
+                    <span>Output</span>
+                    <textarea id="stdout" spellcheck="false" readonly></textarea>
+                </label>
+            </section>
+        </main>
+    </div>
+
+    <script src="./node_modules/monaco-editor/min/vs/loader.js"></script>
+    <script src="./renderer.js"></script>
 </body>
 </html>
