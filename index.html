@@ -18,23 +18,62 @@
                 <span id="status" class="status status-ready">Ready</span>
                 <span id="time" class="time">0 ms</span>
                 <button id="runButton" class="run-button" type="button">Run</button>
+                <button id="submitButton" class="submit-button" type="button">Submit</button>
             </div>
         </header>
 
         <main class="workspace">
-            <section class="editor-pane" aria-label="C++ editor">
-                <div id="editor"></div>
+            <aside class="problem-list" aria-label="Problem list">
+                <div class="sidebar-title">Basic 20</div>
+                <div id="problemList" class="problem-items"></div>
+            </aside>
+
+            <section class="problem-pane" aria-label="Problem">
+                <div class="problem-header">
+                    <div>
+                        <h2 id="problemTitle">Loading...</h2>
+                        <p id="problemMeta"></p>
+                    </div>
+                    <button id="resetCodeButton" class="plain-button" type="button">Reset Code</button>
+                </div>
+                <div class="problem-body">
+                    <p id="problemDescription"></p>
+
+                    <h3>Input</h3>
+                    <p id="inputDescription"></p>
+
+                    <h3>Output</h3>
+                    <p id="outputDescription"></p>
+
+                    <h3>Sample</h3>
+                    <div class="sample-grid">
+                        <div>
+                            <span>Input</span>
+                            <pre id="sampleInput"></pre>
+                        </div>
+                        <div>
+                            <span>Output</span>
+                            <pre id="sampleOutput"></pre>
+                        </div>
+                    </div>
+                </div>
             </section>
 
-            <section class="io-pane">
-                <label class="panel">
-                    <span>Input</span>
-                    <textarea id="stdin" spellcheck="false">10 20</textarea>
-                </label>
-                <label class="panel">
-                    <span>Output</span>
-                    <textarea id="stdout" spellcheck="false" readonly></textarea>
-                </label>
+            <section class="coding-pane">
+                <section class="editor-pane" aria-label="C++ editor">
+                    <div id="editor"></div>
+                </section>
+
+                <section class="io-pane">
+                    <label class="panel">
+                        <span>Custom Input</span>
+                        <textarea id="stdin" spellcheck="false">10 20</textarea>
+                    </label>
+                    <label class="panel">
+                        <span>Output / Judge Result</span>
+                        <textarea id="stdout" spellcheck="false" readonly></textarea>
+                    </label>
+                </section>
             </section>
         </main>
     </div>

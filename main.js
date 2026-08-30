@@ -1,6 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
-const { compileAndRun } = require('./services/compilerService');
+const { compileAndRun, judgeSource } = require('./services/compilerService');
+const { getProblem, getProblemForJudge, listProblems } = require('./services/problemService');
 
 function createWindow() {
     const win = new BrowserWindow({
@@ -25,6 +26,26 @@ ipcMain.handle('code:run', async (_event, payload) => {
 
     return compileAndRun(source, input, { app });
 });
+
+ipcMain.handle('code:submit', async (_event, payload) => {
+    const source = typeof payload?.source === 'string' ? payload.source : '';
+    const problemId = typeof payload?.problemId === 'string' ? payload.problemId : '';
+    const problem = await getProblemForJudge(problemId);
+
+    if (!problem) {
+        return {
+            status: 'Runtime Error',
+            output: `Problem not found: ${problemId}`,
+            durationMs: 0,
+            cases: []
+        };
+    }
+
+    return judgeSource(source, problem.testCases, { app });
+});
+
+ipcMain.handle('problems:list', () => listProblems());
+ipcMain.handle('problems:get', (_event, problemId) => getProblem(problemId));
 
 app.whenReady().then(() => {
     createWindow();

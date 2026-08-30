@@ -112,11 +112,53 @@ g++ main.cpp -std=c++17 -O2 -o main.exe
 The actual app also passes `-fdiagnostics-color=never` so compiler errors are readable in the output panel.
 
 4. Run `main.exe`.
-5. Send the Input panel text to stdin.
+5. Send the Custom Input panel text to stdin.
 6. Capture stdout and stderr.
 7. Show one of: `Ready`, `Compiling`, `Running`, `Success`, `Compile Error`, `Runtime Error`, `Timeout`.
 
 Runtime timeout is 5 seconds. On Windows, timeout termination uses `taskkill /PID <pid> /T /F` so child processes are also terminated.
+
+## Built-in Problems
+
+AlgoRun includes an original beginner problem set at:
+
+```text
+problems/basic.json
+```
+
+The first set contains 20 self-authored practice problems covering:
+
+```text
+Input/Output, conditions, loops, arrays, strings, sorting, and basic math
+```
+
+The renderer only receives public problem fields such as title, statement, samples, starter code, and test case count. Full test cases are loaded by the main process for judging.
+
+## Run vs Submit
+
+`Run` compiles the current code and executes it once with the text in the Custom Input panel.
+
+`Submit` compiles the current code once, then runs the resulting `main.exe` against every test case in the selected problem.
+
+Judging results:
+
+```text
+Accepted
+Wrong Answer
+Compile Error
+Runtime Error
+Timeout
+```
+
+Output comparison normalizes Windows line endings and ignores trailing whitespace at the end of the full output.
+
+## Verify Problem Set
+
+```bat
+npm.cmd run verify:problems
+```
+
+This checks that the built-in problem set loads and that the judge can produce `Accepted`, `Wrong Answer`, `Compile Error`, and `Timeout`.
 
 ## Bundled Compiler
 

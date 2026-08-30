@@ -3,6 +3,7 @@
     --bg: #11161a;
     --panel: #171d22;
     --panel-strong: #1f272d;
+    --surface: #12181c;
     --line: #2c363e;
     --text: #ecf0f3;
     --muted: #9aa7b0;
@@ -10,6 +11,7 @@
     --accent-strong: #47c981;
     --danger: #e06565;
     --warn: #e0b24f;
+    --info: #6fb7d6;
 }
 
 * {
@@ -18,7 +20,7 @@
 
 body {
     margin: 0;
-    min-width: 860px;
+    min-width: 1060px;
     height: 100vh;
     overflow: hidden;
     background: var(--bg);
@@ -62,7 +64,7 @@ textarea {
 .run-controls {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
 }
 
 .status,
@@ -70,7 +72,7 @@ textarea {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 112px;
+    min-width: 116px;
     height: 34px;
     padding: 0 12px;
     border: 1px solid var(--line);
@@ -80,13 +82,15 @@ textarea {
     white-space: nowrap;
 }
 
-.status-success {
+.status-success,
+.status-accepted {
     color: var(--accent-strong);
 }
 
 .status-compile-error,
 .status-runtime-error,
-.status-timeout {
+.status-timeout,
+.status-wrong-answer {
     color: var(--danger);
 }
 
@@ -95,30 +99,191 @@ textarea {
     color: var(--warn);
 }
 
-.run-button {
+.run-button,
+.submit-button,
+.plain-button {
     height: 38px;
-    min-width: 86px;
     border: 0;
     border-radius: 6px;
-    background: var(--accent);
-    color: #07110b;
     font-weight: 700;
     cursor: pointer;
 }
 
-.run-button:hover:not(:disabled) {
-    background: var(--accent-strong);
+.run-button,
+.submit-button {
+    min-width: 84px;
 }
 
-.run-button:disabled {
+.run-button {
+    background: var(--accent);
+    color: #07110b;
+}
+
+.submit-button {
+    background: var(--info);
+    color: #071014;
+}
+
+.plain-button {
+    min-width: 96px;
+    border: 1px solid var(--line);
+    background: var(--panel-strong);
+    color: var(--text);
+}
+
+button:hover:not(:disabled) {
+    filter: brightness(1.08);
+}
+
+button:disabled {
     cursor: progress;
-    opacity: 0.7;
+    opacity: 0.65;
 }
 
 .workspace {
     display: grid;
-    grid-template-rows: minmax(320px, 1fr) 230px;
+    grid-template-columns: 230px 330px minmax(520px, 1fr);
     min-height: 0;
+}
+
+.problem-list,
+.problem-pane,
+.coding-pane {
+    min-height: 0;
+    border-right: 1px solid var(--line);
+}
+
+.coding-pane {
+    display: grid;
+    grid-template-rows: minmax(340px, 1fr) 230px;
+    border-right: 0;
+}
+
+.problem-list {
+    display: grid;
+    grid-template-rows: 44px 1fr;
+    background: var(--panel);
+}
+
+.sidebar-title {
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    border-bottom: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.problem-items {
+    overflow: auto;
+    padding: 8px;
+}
+
+.problem-item {
+    display: grid;
+    gap: 4px;
+    width: 100%;
+    min-height: 58px;
+    margin: 0 0 6px;
+    padding: 9px 10px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--text);
+    text-align: left;
+}
+
+.problem-item span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 700;
+}
+
+.problem-item small {
+    overflow: hidden;
+    color: var(--muted);
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.problem-item.active {
+    border-color: #3a7d59;
+    background: #1b2922;
+}
+
+.problem-pane {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    background: var(--surface);
+}
+
+.problem-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px;
+    border-bottom: 1px solid var(--line);
+}
+
+.problem-header h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.problem-header p {
+    margin: 5px 0 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.problem-body {
+    overflow: auto;
+    padding: 14px;
+}
+
+.problem-body p {
+    margin: 0 0 14px;
+    color: #d7dde2;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.problem-body h3 {
+    margin: 18px 0 7px;
+    color: var(--text);
+    font-size: 13px;
+}
+
+.sample-grid {
+    display: grid;
+    gap: 10px;
+}
+
+.sample-grid span {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+pre {
+    min-height: 44px;
+    margin: 0;
+    padding: 10px;
+    overflow: auto;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: #0e1316;
+    color: var(--text);
+    font-family: Consolas, "Cascadia Mono", monospace;
+    font-size: 13px;
+    line-height: 1.45;
+    white-space: pre-wrap;
 }
 
 .editor-pane {

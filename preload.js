@@ -1,5 +1,8 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('algorun', {
-    runCode: ({ source, input }) => ipcRenderer.invoke('code:run', { source, input })
+    getProblem: (problemId) => ipcRenderer.invoke('problems:get', problemId),
+    listProblems: () => ipcRenderer.invoke('problems:list'),
+    runCode: ({ source, input }) => ipcRenderer.invoke('code:run', { source, input }),
+    submitCode: ({ source, problemId }) => ipcRenderer.invoke('code:submit', { source, problemId })
 });

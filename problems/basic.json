@@ -1,0 +1,330 @@
+[
+  {
+    "id": "basic-001-a-plus-b",
+    "title": "A+B",
+    "category": "Input/Output",
+    "level": "Beginner",
+    "description": "Read two integers and print their sum.",
+    "inputDescription": "The first line contains two integers a and b.",
+    "outputDescription": "Print a + b.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int a, b;\n    cin >> a >> b;\n    cout << a + b << '\\n';\n    return 0;\n}\n",
+    "samples": [{ "input": "10 20", "output": "30" }],
+    "testCases": [
+      { "input": "1 2", "output": "3" },
+      { "input": "10 20", "output": "30" },
+      { "input": "-5 8", "output": "3" },
+      { "input": "100000 900000", "output": "1000000" }
+    ]
+  },
+  {
+    "id": "basic-002-four-operations",
+    "title": "Four Operations",
+    "category": "Input/Output",
+    "level": "Beginner",
+    "description": "Read two integers and print their sum, difference, product, and integer quotient on separate lines.",
+    "inputDescription": "The first line contains two positive integers a and b. b is not zero.",
+    "outputDescription": "Print a+b, a-b, a*b, and a/b using integer division.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int a, b;\n    cin >> a >> b;\n    return 0;\n}\n",
+    "samples": [{ "input": "7 3", "output": "10\n4\n21\n2" }],
+    "testCases": [
+      { "input": "7 3", "output": "10\n4\n21\n2" },
+      { "input": "20 5", "output": "25\n15\n100\n4" },
+      { "input": "1 2", "output": "3\n-1\n2\n0" }
+    ]
+  },
+  {
+    "id": "basic-003-even-or-odd",
+    "title": "Even or Odd",
+    "category": "Condition",
+    "level": "Beginner",
+    "description": "Read one integer and print EVEN if it is even, otherwise print ODD.",
+    "inputDescription": "The first line contains one integer n.",
+    "outputDescription": "Print EVEN or ODD.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "12", "output": "EVEN" }],
+    "testCases": [
+      { "input": "12", "output": "EVEN" },
+      { "input": "7", "output": "ODD" },
+      { "input": "0", "output": "EVEN" },
+      { "input": "-3", "output": "ODD" }
+    ]
+  },
+  {
+    "id": "basic-004-max-of-three",
+    "title": "Maximum of Three",
+    "category": "Condition",
+    "level": "Beginner",
+    "description": "Read three integers and print the largest value.",
+    "inputDescription": "The first line contains three integers.",
+    "outputDescription": "Print the maximum integer.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int a, b, c;\n    cin >> a >> b >> c;\n    return 0;\n}\n",
+    "samples": [{ "input": "3 9 5", "output": "9" }],
+    "testCases": [
+      { "input": "3 9 5", "output": "9" },
+      { "input": "-1 -7 -3", "output": "-1" },
+      { "input": "8 8 2", "output": "8" },
+      { "input": "4 10 10", "output": "10" }
+    ]
+  },
+  {
+    "id": "basic-005-sum-1-to-n",
+    "title": "Sum 1 to N",
+    "category": "Loop",
+    "level": "Beginner",
+    "description": "Read n and print the sum of all integers from 1 to n.",
+    "inputDescription": "The first line contains one positive integer n.",
+    "outputDescription": "Print 1 + 2 + ... + n.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    long long n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "10", "output": "55" }],
+    "testCases": [
+      { "input": "1", "output": "1" },
+      { "input": "10", "output": "55" },
+      { "input": "100", "output": "5050" },
+      { "input": "100000", "output": "5000050000" }
+    ]
+  },
+  {
+    "id": "basic-006-multiplication-table",
+    "title": "Multiplication Table",
+    "category": "Loop",
+    "level": "Beginner",
+    "description": "Read n and print n times 1 through 9.",
+    "inputDescription": "The first line contains one integer n.",
+    "outputDescription": "Print nine lines in the form n * i = result.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "3", "output": "3 * 1 = 3\n3 * 2 = 6\n3 * 3 = 9\n3 * 4 = 12\n3 * 5 = 15\n3 * 6 = 18\n3 * 7 = 21\n3 * 8 = 24\n3 * 9 = 27" }],
+    "testCases": [
+      { "input": "2", "output": "2 * 1 = 2\n2 * 2 = 4\n2 * 3 = 6\n2 * 4 = 8\n2 * 5 = 10\n2 * 6 = 12\n2 * 7 = 14\n2 * 8 = 16\n2 * 9 = 18" },
+      { "input": "5", "output": "5 * 1 = 5\n5 * 2 = 10\n5 * 3 = 15\n5 * 4 = 20\n5 * 5 = 25\n5 * 6 = 30\n5 * 7 = 35\n5 * 8 = 40\n5 * 9 = 45" }
+    ]
+  },
+  {
+    "id": "basic-007-countdown",
+    "title": "Countdown",
+    "category": "Loop",
+    "level": "Beginner",
+    "description": "Read n and print numbers from n down to 1.",
+    "inputDescription": "The first line contains one positive integer n.",
+    "outputDescription": "Print each number on its own line.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "5", "output": "5\n4\n3\n2\n1" }],
+    "testCases": [
+      { "input": "1", "output": "1" },
+      { "input": "5", "output": "5\n4\n3\n2\n1" },
+      { "input": "3", "output": "3\n2\n1" }
+    ]
+  },
+  {
+    "id": "basic-008-array-sum",
+    "title": "Array Sum",
+    "category": "Array",
+    "level": "Beginner",
+    "description": "Read n integers and print their sum.",
+    "inputDescription": "The first line contains n. The second line contains n integers.",
+    "outputDescription": "Print the sum.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "5\n1 2 3 4 5", "output": "15" }],
+    "testCases": [
+      { "input": "5\n1 2 3 4 5", "output": "15" },
+      { "input": "3\n-1 0 8", "output": "7" },
+      { "input": "1\n42", "output": "42" }
+    ]
+  },
+  {
+    "id": "basic-009-array-min-max",
+    "title": "Array Min Max",
+    "category": "Array",
+    "level": "Beginner",
+    "description": "Read n integers and print the minimum and maximum values.",
+    "inputDescription": "The first line contains n. The second line contains n integers.",
+    "outputDescription": "Print min and max separated by one space.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "5\n3 1 9 2 7", "output": "1 9" }],
+    "testCases": [
+      { "input": "5\n3 1 9 2 7", "output": "1 9" },
+      { "input": "4\n-8 -3 -10 -1", "output": "-10 -1" },
+      { "input": "1\n6", "output": "6 6" }
+    ]
+  },
+  {
+    "id": "basic-010-count-even",
+    "title": "Count Even Numbers",
+    "category": "Array",
+    "level": "Beginner",
+    "description": "Read n integers and count how many are even.",
+    "inputDescription": "The first line contains n. The second line contains n integers.",
+    "outputDescription": "Print the number of even values.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "6\n1 2 3 4 5 6", "output": "3" }],
+    "testCases": [
+      { "input": "6\n1 2 3 4 5 6", "output": "3" },
+      { "input": "5\n1 3 5 7 9", "output": "0" },
+      { "input": "4\n0 -2 -3 8", "output": "3" }
+    ]
+  },
+  {
+    "id": "basic-011-reverse-string",
+    "title": "Reverse String",
+    "category": "String",
+    "level": "Beginner",
+    "description": "Read one word and print it reversed.",
+    "inputDescription": "The first line contains one word without spaces.",
+    "outputDescription": "Print the reversed word.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    string s;\n    cin >> s;\n    return 0;\n}\n",
+    "samples": [{ "input": "algorun", "output": "nurogla" }],
+    "testCases": [
+      { "input": "algorun", "output": "nurogla" },
+      { "input": "a", "output": "a" },
+      { "input": "level", "output": "level" },
+      { "input": "cpp17", "output": "71ppc" }
+    ]
+  },
+  {
+    "id": "basic-012-count-vowels",
+    "title": "Count Vowels",
+    "category": "String",
+    "level": "Beginner",
+    "description": "Read one lowercase word and count vowels a, e, i, o, u.",
+    "inputDescription": "The first line contains one lowercase word.",
+    "outputDescription": "Print the number of vowels.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    string s;\n    cin >> s;\n    return 0;\n}\n",
+    "samples": [{ "input": "education", "output": "5" }],
+    "testCases": [
+      { "input": "education", "output": "5" },
+      { "input": "rhythm", "output": "0" },
+      { "input": "banana", "output": "3" }
+    ]
+  },
+  {
+    "id": "basic-013-palindrome",
+    "title": "Palindrome",
+    "category": "String",
+    "level": "Beginner",
+    "description": "Read one word and print YES if it is a palindrome, otherwise NO.",
+    "inputDescription": "The first line contains one word.",
+    "outputDescription": "Print YES or NO.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    string s;\n    cin >> s;\n    return 0;\n}\n",
+    "samples": [{ "input": "level", "output": "YES" }],
+    "testCases": [
+      { "input": "level", "output": "YES" },
+      { "input": "code", "output": "NO" },
+      { "input": "abba", "output": "YES" },
+      { "input": "abcba", "output": "YES" }
+    ]
+  },
+  {
+    "id": "basic-014-sort-numbers",
+    "title": "Sort Numbers",
+    "category": "Sort",
+    "level": "Beginner",
+    "description": "Read n integers and print them in ascending order.",
+    "inputDescription": "The first line contains n. The second line contains n integers.",
+    "outputDescription": "Print the sorted integers separated by spaces.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "5\n5 1 4 2 3", "output": "1 2 3 4 5" }],
+    "testCases": [
+      { "input": "5\n5 1 4 2 3", "output": "1 2 3 4 5" },
+      { "input": "4\n2 2 1 1", "output": "1 1 2 2" },
+      { "input": "3\n-1 7 0", "output": "-1 0 7" }
+    ]
+  },
+  {
+    "id": "basic-015-second-largest",
+    "title": "Second Largest",
+    "category": "Array",
+    "level": "Beginner",
+    "description": "Read n distinct integers and print the second largest value.",
+    "inputDescription": "The first line contains n, where n is at least 2. The second line contains n distinct integers.",
+    "outputDescription": "Print the second largest value.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "5\n4 9 1 7 3", "output": "7" }],
+    "testCases": [
+      { "input": "5\n4 9 1 7 3", "output": "7" },
+      { "input": "2\n10 20", "output": "10" },
+      { "input": "4\n-5 -1 -9 -3", "output": "-3" }
+    ]
+  },
+  {
+    "id": "basic-016-factorial",
+    "title": "Factorial",
+    "category": "Math",
+    "level": "Beginner",
+    "description": "Read n and print n factorial.",
+    "inputDescription": "The first line contains n. 0 <= n <= 12.",
+    "outputDescription": "Print n!.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "5", "output": "120" }],
+    "testCases": [
+      { "input": "0", "output": "1" },
+      { "input": "5", "output": "120" },
+      { "input": "10", "output": "3628800" },
+      { "input": "12", "output": "479001600" }
+    ]
+  },
+  {
+    "id": "basic-017-prime-check",
+    "title": "Prime Check",
+    "category": "Math",
+    "level": "Beginner",
+    "description": "Read n and print PRIME if n is prime, otherwise NOT PRIME.",
+    "inputDescription": "The first line contains one integer n.",
+    "outputDescription": "Print PRIME or NOT PRIME.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "17", "output": "PRIME" }],
+    "testCases": [
+      { "input": "1", "output": "NOT PRIME" },
+      { "input": "2", "output": "PRIME" },
+      { "input": "17", "output": "PRIME" },
+      { "input": "100", "output": "NOT PRIME" }
+    ]
+  },
+  {
+    "id": "basic-018-gcd",
+    "title": "GCD",
+    "category": "Math",
+    "level": "Beginner",
+    "description": "Read two positive integers and print their greatest common divisor.",
+    "inputDescription": "The first line contains two positive integers a and b.",
+    "outputDescription": "Print gcd(a, b).",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int a, b;\n    cin >> a >> b;\n    return 0;\n}\n",
+    "samples": [{ "input": "24 18", "output": "6" }],
+    "testCases": [
+      { "input": "24 18", "output": "6" },
+      { "input": "17 13", "output": "1" },
+      { "input": "100 40", "output": "20" }
+    ]
+  },
+  {
+    "id": "basic-019-fibonacci",
+    "title": "Fibonacci",
+    "category": "Math",
+    "level": "Beginner",
+    "description": "Read n and print the nth Fibonacci number. F(0)=0 and F(1)=1.",
+    "inputDescription": "The first line contains n. 0 <= n <= 45.",
+    "outputDescription": "Print F(n).",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "10", "output": "55" }],
+    "testCases": [
+      { "input": "0", "output": "0" },
+      { "input": "1", "output": "1" },
+      { "input": "10", "output": "55" },
+      { "input": "45", "output": "1134903170" }
+    ]
+  },
+  {
+    "id": "basic-020-linear-search",
+    "title": "Linear Search",
+    "category": "Array",
+    "level": "Beginner",
+    "description": "Read n integers and a target x. Print the first zero-based index of x, or -1 if x is not present.",
+    "inputDescription": "The first line contains n. The second line contains n integers. The third line contains x.",
+    "outputDescription": "Print the first index of x, or -1.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "5\n4 8 15 16 23\n15", "output": "2" }],
+    "testCases": [
+      { "input": "5\n4 8 15 16 23\n15", "output": "2" },
+      { "input": "4\n1 2 3 4\n9", "output": "-1" },
+      { "input": "6\n7 7 3 7 5 7\n7", "output": "0" }
+    ]
+  }
+]
