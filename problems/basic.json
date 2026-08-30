@@ -1,7 +1,7 @@
 [
   {
     "id": "basic-001-a-plus-b",
-    "title": "A+B",
+    "title": "두 수의 합",
     "category": "Input/Output",
     "level": "Beginner",
     "description": "Read two integers and print their sum.",
@@ -18,7 +18,7 @@
   },
   {
     "id": "basic-002-four-operations",
-    "title": "Four Operations",
+    "title": "사칙연산",
     "category": "Input/Output",
     "level": "Beginner",
     "description": "Read two integers and print their sum, difference, product, and integer quotient on separate lines.",
@@ -34,7 +34,7 @@
   },
   {
     "id": "basic-003-even-or-odd",
-    "title": "Even or Odd",
+    "title": "짝수와 홀수",
     "category": "Condition",
     "level": "Beginner",
     "description": "Read one integer and print EVEN if it is even, otherwise print ODD.",
@@ -51,7 +51,7 @@
   },
   {
     "id": "basic-004-max-of-three",
-    "title": "Maximum of Three",
+    "title": "세 수의 최댓값",
     "category": "Condition",
     "level": "Beginner",
     "description": "Read three integers and print the largest value.",
@@ -68,7 +68,7 @@
   },
   {
     "id": "basic-005-sum-1-to-n",
-    "title": "Sum 1 to N",
+    "title": "1부터 N까지의 합",
     "category": "Loop",
     "level": "Beginner",
     "description": "Read n and print the sum of all integers from 1 to n.",
@@ -85,7 +85,7 @@
   },
   {
     "id": "basic-006-multiplication-table",
-    "title": "Multiplication Table",
+    "title": "구구단",
     "category": "Loop",
     "level": "Beginner",
     "description": "Read n and print n times 1 through 9.",
@@ -100,7 +100,7 @@
   },
   {
     "id": "basic-007-countdown",
-    "title": "Countdown",
+    "title": "카운트다운",
     "category": "Loop",
     "level": "Beginner",
     "description": "Read n and print numbers from n down to 1.",
@@ -116,7 +116,7 @@
   },
   {
     "id": "basic-008-array-sum",
-    "title": "Array Sum",
+    "title": "배열의 합",
     "category": "Array",
     "level": "Beginner",
     "description": "Read n integers and print their sum.",
@@ -132,7 +132,7 @@
   },
   {
     "id": "basic-009-array-min-max",
-    "title": "Array Min Max",
+    "title": "최솟값과 최댓값",
     "category": "Array",
     "level": "Beginner",
     "description": "Read n integers and print the minimum and maximum values.",
@@ -148,7 +148,7 @@
   },
   {
     "id": "basic-010-count-even",
-    "title": "Count Even Numbers",
+    "title": "짝수 개수 세기",
     "category": "Array",
     "level": "Beginner",
     "description": "Read n integers and count how many are even.",
@@ -164,7 +164,7 @@
   },
   {
     "id": "basic-011-reverse-string",
-    "title": "Reverse String",
+    "title": "문자열 뒤집기",
     "category": "String",
     "level": "Beginner",
     "description": "Read one word and print it reversed.",
@@ -181,7 +181,7 @@
   },
   {
     "id": "basic-012-count-vowels",
-    "title": "Count Vowels",
+    "title": "모음 개수 세기",
     "category": "String",
     "level": "Beginner",
     "description": "Read one lowercase word and count vowels a, e, i, o, u.",
@@ -197,7 +197,7 @@
   },
   {
     "id": "basic-013-palindrome",
-    "title": "Palindrome",
+    "title": "팰린드롬 판별",
     "category": "String",
     "level": "Beginner",
     "description": "Read one word and print YES if it is a palindrome, otherwise NO.",
@@ -214,7 +214,7 @@
   },
   {
     "id": "basic-014-sort-numbers",
-    "title": "Sort Numbers",
+    "title": "수 정렬하기",
     "category": "Sort",
     "level": "Beginner",
     "description": "Read n integers and print them in ascending order.",
@@ -230,7 +230,7 @@
   },
   {
     "id": "basic-015-second-largest",
-    "title": "Second Largest",
+    "title": "두 번째로 큰 수",
     "category": "Array",
     "level": "Beginner",
     "description": "Read n distinct integers and print the second largest value.",
@@ -246,7 +246,7 @@
   },
   {
     "id": "basic-016-factorial",
-    "title": "Factorial",
+    "title": "팩토리얼",
     "category": "Math",
     "level": "Beginner",
     "description": "Read n and print n factorial.",
@@ -263,7 +263,7 @@
   },
   {
     "id": "basic-017-prime-check",
-    "title": "Prime Check",
+    "title": "소수 판별",
     "category": "Math",
     "level": "Beginner",
     "description": "Read n and print PRIME if n is prime, otherwise NOT PRIME.",
@@ -280,7 +280,7 @@
   },
   {
     "id": "basic-018-gcd",
-    "title": "GCD",
+    "title": "최대공약수",
     "category": "Math",
     "level": "Beginner",
     "description": "Read two positive integers and print their greatest common divisor.",
@@ -296,7 +296,7 @@
   },
   {
     "id": "basic-019-fibonacci",
-    "title": "Fibonacci",
+    "title": "피보나치 수",
     "category": "Math",
     "level": "Beginner",
     "description": "Read n and print the nth Fibonacci number. F(0)=0 and F(1)=1.",
@@ -313,7 +313,7 @@
   },
   {
     "id": "basic-020-linear-search",
-    "title": "Linear Search",
+    "title": "선형 탐색",
     "category": "Array",
     "level": "Beginner",
     "description": "Read n integers and a target x. Print the first zero-based index of x, or -1 if x is not present.",
@@ -325,6 +325,336 @@
       { "input": "5\n4 8 15 16 23\n15", "output": "2" },
       { "input": "4\n1 2 3 4\n9", "output": "-1" },
       { "input": "6\n7 7 3 7 5 7\n7", "output": "0" }
+    ]
+  },
+  {
+    "id": "basic-021-lcm",
+    "title": "최소공배수",
+    "category": "Math",
+    "level": "Intermediate",
+    "description": "두 양의 정수 a, b를 입력받아 최소공배수를 출력하세요.",
+    "inputDescription": "첫 줄에 두 양의 정수 a, b가 주어집니다.",
+    "outputDescription": "a와 b의 최소공배수를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    long long a, b;\n    cin >> a >> b;\n    return 0;\n}\n",
+    "samples": [{ "input": "12 18", "output": "36" }],
+    "testCases": [
+      { "input": "12 18", "output": "36" },
+      { "input": "7 13", "output": "91" },
+      { "input": "100 40", "output": "200" },
+      { "input": "123456 7890", "output": "162344640" }
+    ]
+  },
+  {
+    "id": "basic-022-gcd-of-array",
+    "title": "배열의 최대공약수",
+    "category": "Math",
+    "level": "Intermediate",
+    "description": "n개의 양의 정수를 입력받아 모든 수의 최대공약수를 출력하세요.",
+    "inputDescription": "첫 줄에 n이 주어지고, 둘째 줄에 n개의 양의 정수가 주어집니다.",
+    "outputDescription": "모든 수의 최대공약수를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "4\n12 18 30 42", "output": "6" }],
+    "testCases": [
+      { "input": "4\n12 18 30 42", "output": "6" },
+      { "input": "3\n7 13 29", "output": "1" },
+      { "input": "5\n100 80 60 40 20", "output": "20" }
+    ]
+  },
+  {
+    "id": "basic-023-lcm-of-array",
+    "title": "배열의 최소공배수",
+    "category": "Math",
+    "level": "Intermediate",
+    "description": "n개의 양의 정수를 입력받아 모든 수의 최소공배수를 출력하세요.",
+    "inputDescription": "첫 줄에 n이 주어지고, 둘째 줄에 n개의 양의 정수가 주어집니다.",
+    "outputDescription": "모든 수의 최소공배수를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "4\n2 3 4 6", "output": "12" }],
+    "testCases": [
+      { "input": "4\n2 3 4 6", "output": "12" },
+      { "input": "3\n5 7 11", "output": "385" },
+      { "input": "5\n6 10 15 3 5", "output": "30" }
+    ]
+  },
+  {
+    "id": "basic-024-divisor-count",
+    "title": "약수의 개수",
+    "category": "Math",
+    "level": "Intermediate",
+    "description": "양의 정수 n의 약수가 몇 개인지 출력하세요.",
+    "inputDescription": "첫 줄에 양의 정수 n이 주어집니다.",
+    "outputDescription": "n의 약수 개수를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    long long n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "12", "output": "6" }],
+    "testCases": [
+      { "input": "1", "output": "1" },
+      { "input": "12", "output": "6" },
+      { "input": "36", "output": "9" },
+      { "input": "9973", "output": "2" }
+    ]
+  },
+  {
+    "id": "basic-025-sum-of-divisors",
+    "title": "약수의 합",
+    "category": "Math",
+    "level": "Intermediate",
+    "description": "양의 정수 n의 모든 약수의 합을 출력하세요.",
+    "inputDescription": "첫 줄에 양의 정수 n이 주어집니다.",
+    "outputDescription": "n의 약수 합을 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    long long n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "12", "output": "28" }],
+    "testCases": [
+      { "input": "1", "output": "1" },
+      { "input": "12", "output": "28" },
+      { "input": "28", "output": "56" },
+      { "input": "9973", "output": "9974" }
+    ]
+  },
+  {
+    "id": "basic-026-prime-count",
+    "title": "소수 개수 세기",
+    "category": "Math",
+    "level": "Intermediate",
+    "description": "n개의 정수 중 소수가 몇 개인지 출력하세요.",
+    "inputDescription": "첫 줄에 n, 둘째 줄에 n개의 정수가 주어집니다.",
+    "outputDescription": "소수의 개수를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "5\n1 2 3 4 5", "output": "3" }],
+    "testCases": [
+      { "input": "5\n1 2 3 4 5", "output": "3" },
+      { "input": "4\n10 11 12 13", "output": "2" },
+      { "input": "6\n0 1 25 49 97 101", "output": "2" }
+    ]
+  },
+  {
+    "id": "basic-027-sieve",
+    "title": "에라토스테네스의 체",
+    "category": "Math",
+    "level": "Intermediate",
+    "description": "1부터 n까지의 소수를 모두 오름차순으로 출력하세요.",
+    "inputDescription": "첫 줄에 정수 n이 주어집니다.",
+    "outputDescription": "n 이하의 소수를 공백으로 구분해 출력합니다. 소수가 없으면 빈 줄을 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "20", "output": "2 3 5 7 11 13 17 19" }],
+    "testCases": [
+      { "input": "1", "output": "" },
+      { "input": "2", "output": "2" },
+      { "input": "20", "output": "2 3 5 7 11 13 17 19" },
+      { "input": "30", "output": "2 3 5 7 11 13 17 19 23 29" }
+    ]
+  },
+  {
+    "id": "basic-028-factorization",
+    "title": "소인수분해",
+    "category": "Math",
+    "level": "Intermediate",
+    "description": "양의 정수 n을 소인수분해하여 각 소인수를 오름차순으로 출력하세요.",
+    "inputDescription": "첫 줄에 2 이상의 정수 n이 주어집니다.",
+    "outputDescription": "소인수를 한 줄에 하나씩 출력합니다. 같은 소인수는 여러 번 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    long long n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "72", "output": "2\n2\n2\n3\n3" }],
+    "testCases": [
+      { "input": "72", "output": "2\n2\n2\n3\n3" },
+      { "input": "97", "output": "97" },
+      { "input": "360", "output": "2\n2\n2\n3\n3\n5" }
+    ]
+  },
+  {
+    "id": "basic-029-coprime",
+    "title": "서로소 판별",
+    "category": "Math",
+    "level": "Intermediate",
+    "description": "두 양의 정수가 서로소인지 판별하세요.",
+    "inputDescription": "첫 줄에 두 양의 정수 a, b가 주어집니다.",
+    "outputDescription": "최대공약수가 1이면 YES, 아니면 NO를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int a, b;\n    cin >> a >> b;\n    return 0;\n}\n",
+    "samples": [{ "input": "14 25", "output": "YES" }],
+    "testCases": [
+      { "input": "14 25", "output": "YES" },
+      { "input": "21 35", "output": "NO" },
+      { "input": "17 34", "output": "NO" },
+      { "input": "100 99", "output": "YES" }
+    ]
+  },
+  {
+    "id": "basic-030-fraction-reduction",
+    "title": "분수 약분",
+    "category": "Math",
+    "level": "Intermediate",
+    "description": "분자와 분모를 입력받아 기약분수로 약분하세요.",
+    "inputDescription": "첫 줄에 양의 정수 a, b가 주어집니다. b는 0이 아닙니다.",
+    "outputDescription": "약분된 분자와 분모를 공백으로 구분해 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    long long a, b;\n    cin >> a >> b;\n    return 0;\n}\n",
+    "samples": [{ "input": "12 18", "output": "2 3" }],
+    "testCases": [
+      { "input": "12 18", "output": "2 3" },
+      { "input": "10 100", "output": "1 10" },
+      { "input": "13 17", "output": "13 17" },
+      { "input": "81 27", "output": "3 1" }
+    ]
+  },
+  {
+    "id": "basic-031-prefix-sum-range",
+    "title": "구간 합 구하기",
+    "category": "Prefix Sum",
+    "level": "Intermediate",
+    "description": "배열과 여러 개의 구간이 주어질 때 각 구간의 합을 출력하세요.",
+    "inputDescription": "첫 줄에 n과 q가 주어집니다. 둘째 줄에 n개의 정수, 다음 q개 줄에 1-based 구간 l, r이 주어집니다.",
+    "outputDescription": "각 구간의 합을 한 줄에 하나씩 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, q;\n    cin >> n >> q;\n    return 0;\n}\n",
+    "samples": [{ "input": "5 3\n1 2 3 4 5\n1 3\n2 5\n4 4", "output": "6\n14\n4" }],
+    "testCases": [
+      { "input": "5 3\n1 2 3 4 5\n1 3\n2 5\n4 4", "output": "6\n14\n4" },
+      { "input": "4 2\n10 -2 7 1\n1 4\n2 3", "output": "16\n5" },
+      { "input": "3 3\n5 5 5\n1 1\n1 2\n1 3", "output": "5\n10\n15" }
+    ]
+  },
+  {
+    "id": "basic-032-prefix-even-count",
+    "title": "구간 짝수 개수",
+    "category": "Prefix Sum",
+    "level": "Intermediate",
+    "description": "배열과 여러 구간이 주어질 때 각 구간에 포함된 짝수의 개수를 출력하세요.",
+    "inputDescription": "첫 줄에 n과 q가 주어집니다. 둘째 줄에 n개의 정수, 다음 q개 줄에 1-based 구간 l, r이 주어집니다.",
+    "outputDescription": "각 구간의 짝수 개수를 한 줄에 하나씩 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, q;\n    cin >> n >> q;\n    return 0;\n}\n",
+    "samples": [{ "input": "5 2\n1 2 4 7 8\n1 5\n2 4", "output": "3\n2" }],
+    "testCases": [
+      { "input": "5 2\n1 2 4 7 8\n1 5\n2 4", "output": "3\n2" },
+      { "input": "4 3\n2 6 8 10\n1 1\n1 4\n3 4", "output": "1\n4\n2" },
+      { "input": "3 1\n1 3 5\n1 3", "output": "0" }
+    ]
+  },
+  {
+    "id": "basic-033-binary-search",
+    "title": "이분 탐색",
+    "category": "Search",
+    "level": "Intermediate",
+    "description": "정렬된 배열에서 target이 존재하는지 판별하세요.",
+    "inputDescription": "첫 줄에 n, 둘째 줄에 오름차순 정렬된 n개의 정수, 셋째 줄에 target이 주어집니다.",
+    "outputDescription": "target이 있으면 YES, 없으면 NO를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "5\n1 3 5 7 9\n7", "output": "YES" }],
+    "testCases": [
+      { "input": "5\n1 3 5 7 9\n7", "output": "YES" },
+      { "input": "5\n1 3 5 7 9\n2", "output": "NO" },
+      { "input": "1\n10\n10", "output": "YES" },
+      { "input": "6\n-5 -1 0 4 10 11\n-5", "output": "YES" }
+    ]
+  },
+  {
+    "id": "basic-034-lower-bound",
+    "title": "처음 이상인 위치",
+    "category": "Search",
+    "level": "Intermediate",
+    "description": "정렬된 배열에서 target 이상인 첫 번째 위치를 찾으세요.",
+    "inputDescription": "첫 줄에 n, 둘째 줄에 오름차순 정렬된 n개의 정수, 셋째 줄에 target이 주어집니다.",
+    "outputDescription": "target 이상인 첫 번째 0-based 인덱스를 출력합니다. 없으면 n을 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "5\n1 3 5 7 9\n6", "output": "3" }],
+    "testCases": [
+      { "input": "5\n1 3 5 7 9\n6", "output": "3" },
+      { "input": "5\n1 3 5 7 9\n1", "output": "0" },
+      { "input": "5\n1 3 5 7 9\n10", "output": "5" },
+      { "input": "5\n1 3 3 3 8\n3", "output": "1" }
+    ]
+  },
+  {
+    "id": "basic-035-frequency-counter",
+    "title": "빈도수 세기",
+    "category": "Map",
+    "level": "Intermediate",
+    "description": "n개의 정수와 q개의 질문이 주어질 때, 각 질문 값이 배열에 몇 번 등장하는지 출력하세요.",
+    "inputDescription": "첫 줄에 n, 둘째 줄에 n개의 정수, 셋째 줄에 q, 넷째 줄에 q개의 정수가 주어집니다.",
+    "outputDescription": "각 질문의 등장 횟수를 한 줄에 하나씩 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "6\n1 2 2 3 3 3\n4\n1 2 3 4", "output": "1\n2\n3\n0" }],
+    "testCases": [
+      { "input": "6\n1 2 2 3 3 3\n4\n1 2 3 4", "output": "1\n2\n3\n0" },
+      { "input": "5\n-1 -1 0 2 -1\n3\n-1 0 3", "output": "3\n1\n0" },
+      { "input": "1\n7\n2\n7 8", "output": "1\n0" }
+    ]
+  },
+  {
+    "id": "basic-036-anagram",
+    "title": "애너그램 판별",
+    "category": "String",
+    "level": "Intermediate",
+    "description": "두 lowercase 문자열이 서로 애너그램인지 판별하세요.",
+    "inputDescription": "첫 줄에 문자열 a, 둘째 줄에 문자열 b가 주어집니다.",
+    "outputDescription": "애너그램이면 YES, 아니면 NO를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    string a, b;\n    cin >> a >> b;\n    return 0;\n}\n",
+    "samples": [{ "input": "listen\nsilent", "output": "YES" }],
+    "testCases": [
+      { "input": "listen\nsilent", "output": "YES" },
+      { "input": "apple\npapel", "output": "YES" },
+      { "input": "hello\nworld", "output": "NO" },
+      { "input": "abc\naabbcc", "output": "NO" }
+    ]
+  },
+  {
+    "id": "basic-037-longest-word",
+    "title": "가장 긴 단어",
+    "category": "String",
+    "level": "Intermediate",
+    "description": "n개의 단어 중 가장 긴 단어를 출력하세요. 길이가 같으면 먼저 나온 단어를 출력합니다.",
+    "inputDescription": "첫 줄에 n, 다음 n개 줄에 단어가 하나씩 주어집니다.",
+    "outputDescription": "가장 긴 단어를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "4\ncat\nalgorithm\ncode\nrunner", "output": "algorithm" }],
+    "testCases": [
+      { "input": "4\ncat\nalgorithm\ncode\nrunner", "output": "algorithm" },
+      { "input": "3\naa\nbb\nc", "output": "aa" },
+      { "input": "1\nsingle", "output": "single" }
+    ]
+  },
+  {
+    "id": "basic-038-matrix-addition",
+    "title": "행렬 덧셈",
+    "category": "Array",
+    "level": "Intermediate",
+    "description": "두 n x m 행렬을 입력받아 합 행렬을 출력하세요.",
+    "inputDescription": "첫 줄에 n과 m, 다음 n줄에 첫 번째 행렬, 다음 n줄에 두 번째 행렬이 주어집니다.",
+    "outputDescription": "두 행렬의 합을 n줄로 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, m;\n    cin >> n >> m;\n    return 0;\n}\n",
+    "samples": [{ "input": "2 3\n1 2 3\n4 5 6\n10 20 30\n40 50 60", "output": "11 22 33\n44 55 66" }],
+    "testCases": [
+      { "input": "2 3\n1 2 3\n4 5 6\n10 20 30\n40 50 60", "output": "11 22 33\n44 55 66" },
+      { "input": "1 2\n-1 5\n3 -2", "output": "2 3" },
+      { "input": "2 2\n0 0\n1 1\n2 3\n4 5", "output": "2 3\n5 6" }
+    ]
+  },
+  {
+    "id": "basic-039-rotate-array",
+    "title": "배열 회전",
+    "category": "Array",
+    "level": "Intermediate",
+    "description": "길이 n의 배열을 오른쪽으로 k칸 회전한 결과를 출력하세요.",
+    "inputDescription": "첫 줄에 n과 k, 둘째 줄에 n개의 정수가 주어집니다.",
+    "outputDescription": "회전된 배열을 공백으로 구분해 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, k;\n    cin >> n >> k;\n    return 0;\n}\n",
+    "samples": [{ "input": "5 2\n1 2 3 4 5", "output": "4 5 1 2 3" }],
+    "testCases": [
+      { "input": "5 2\n1 2 3 4 5", "output": "4 5 1 2 3" },
+      { "input": "4 4\n9 8 7 6", "output": "9 8 7 6" },
+      { "input": "3 5\n1 2 3", "output": "2 3 1" }
+    ]
+  },
+  {
+    "id": "basic-040-combination",
+    "title": "조합 계산",
+    "category": "Math",
+    "level": "Intermediate",
+    "description": "n과 r을 입력받아 조합 nCr 값을 출력하세요.",
+    "inputDescription": "첫 줄에 정수 n과 r이 주어집니다. 0 <= r <= n <= 30.",
+    "outputDescription": "nCr 값을 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, r;\n    cin >> n >> r;\n    return 0;\n}\n",
+    "samples": [{ "input": "5 2", "output": "10" }],
+    "testCases": [
+      { "input": "5 2", "output": "10" },
+      { "input": "10 0", "output": "1" },
+      { "input": "10 10", "output": "1" },
+      { "input": "30 15", "output": "155117520" }
     ]
   }
 ]
