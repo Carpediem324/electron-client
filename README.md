@@ -126,10 +126,10 @@ AlgoRun includes an original beginner problem set at:
 problems/basic.json
 ```
 
-The first set contains 40 self-authored practice problems covering beginner through intermediate topics:
+The first set contains 60 self-authored practice problems covering beginner through intermediate topics:
 
 ```text
-Input/Output, conditions, loops, arrays, strings, sorting, GCD, LCM, divisors, primes, prefix sums, maps, binary search, and combinations
+Input/Output, conditions, loops, arrays, strings, sorting, GCD, LCM, divisors, primes, prefix sums, maps, binary search, combinations, stacks, queues, sets, two pointers, sliding windows, greedy, DP, graphs, and grids
 ```
 
 The renderer only receives public problem fields such as title, statement, samples, starter code, and test case count. Full test cases are loaded by the main process for judging.

@@ -20,7 +20,7 @@ int main() {
 
 async function main() {
     const problems = await listProblems();
-    assert(problems.length === 40, `Expected 40 problems, got ${problems.length}`);
+    assert(problems.length === 60, `Expected 60 problems, got ${problems.length}`);
 
     const problem = await getProblemForJudge('basic-001-a-plus-b');
     assert(problem, 'A+B problem was not found');

@@ -656,5 +656,330 @@
       { "input": "10 10", "output": "1" },
       { "input": "30 15", "output": "155117520" }
     ]
+  },
+  {
+    "id": "basic-041-valid-parentheses",
+    "title": "올바른 괄호",
+    "category": "Stack",
+    "level": "Intermediate",
+    "description": "괄호 문자열이 올바른 괄호 문자열인지 판별하세요.",
+    "inputDescription": "첫 줄에 '('와 ')'로만 이루어진 문자열 s가 주어집니다.",
+    "outputDescription": "올바른 괄호 문자열이면 YES, 아니면 NO를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    string s;\n    cin >> s;\n    return 0;\n}\n",
+    "samples": [{ "input": "(()())", "output": "YES" }],
+    "testCases": [
+      { "input": "(()())", "output": "YES" },
+      { "input": "())(", "output": "NO" },
+      { "input": "((()))", "output": "YES" },
+      { "input": "(()", "output": "NO" }
+    ]
+  },
+  {
+    "id": "basic-042-stack-sequence",
+    "title": "스택 명령 처리",
+    "category": "Stack",
+    "level": "Intermediate",
+    "description": "push와 pop 명령을 처리하고 pop 명령의 결과를 출력하세요.",
+    "inputDescription": "첫 줄에 명령 수 n이 주어집니다. 다음 n줄에는 'push x' 또는 'pop'이 주어집니다.",
+    "outputDescription": "pop 명령마다 꺼낸 값을 출력합니다. 스택이 비어 있으면 -1을 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "5\npush 3\npush 7\npop\npop\npop", "output": "7\n3\n-1" }],
+    "testCases": [
+      { "input": "5\npush 3\npush 7\npop\npop\npop", "output": "7\n3\n-1" },
+      { "input": "4\npop\npush 10\npush 20\npop", "output": "-1\n20" },
+      { "input": "3\npush 1\npush 2\npush 3", "output": "" }
+    ]
+  },
+  {
+    "id": "basic-043-queue-simulation",
+    "title": "큐 명령 처리",
+    "category": "Queue",
+    "level": "Intermediate",
+    "description": "push와 pop 명령을 처리하고 큐에서 꺼낸 값을 출력하세요.",
+    "inputDescription": "첫 줄에 명령 수 n이 주어집니다. 다음 n줄에는 'push x' 또는 'pop'이 주어집니다.",
+    "outputDescription": "pop 명령마다 꺼낸 값을 출력합니다. 큐가 비어 있으면 -1을 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "6\npush 1\npush 2\npop\npush 3\npop\npop", "output": "1\n2\n3" }],
+    "testCases": [
+      { "input": "6\npush 1\npush 2\npop\npush 3\npop\npop", "output": "1\n2\n3" },
+      { "input": "3\npop\npush 5\npop", "output": "-1\n5" },
+      { "input": "5\npush 8\npush 9\npush 10\npop\npop", "output": "8\n9" }
+    ]
+  },
+  {
+    "id": "basic-044-unique-count",
+    "title": "서로 다른 수의 개수",
+    "category": "Set",
+    "level": "Intermediate",
+    "description": "n개의 정수 중 서로 다른 값이 몇 개인지 출력하세요.",
+    "inputDescription": "첫 줄에 n, 둘째 줄에 n개의 정수가 주어집니다.",
+    "outputDescription": "서로 다른 정수의 개수를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "7\n1 2 2 3 3 3 4", "output": "4" }],
+    "testCases": [
+      { "input": "7\n1 2 2 3 3 3 4", "output": "4" },
+      { "input": "5\n5 5 5 5 5", "output": "1" },
+      { "input": "6\n-1 0 -1 2 0 3", "output": "4" }
+    ]
+  },
+  {
+    "id": "basic-045-common-elements",
+    "title": "공통 원소 찾기",
+    "category": "Set",
+    "level": "Intermediate",
+    "description": "두 배열에 모두 등장하는 원소를 오름차순으로 출력하세요.",
+    "inputDescription": "첫 줄에 n, 둘째 줄에 n개의 정수, 셋째 줄에 m, 넷째 줄에 m개의 정수가 주어집니다.",
+    "outputDescription": "공통 원소를 오름차순으로 공백 구분해 출력합니다. 공통 원소가 없으면 빈 줄을 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "5\n1 2 3 4 5\n4\n3 4 4 6", "output": "3 4" }],
+    "testCases": [
+      { "input": "5\n1 2 3 4 5\n4\n3 4 4 6", "output": "3 4" },
+      { "input": "3\n1 2 3\n3\n4 5 6", "output": "" },
+      { "input": "4\n7 7 8 9\n5\n9 7 7 10 8", "output": "7 8 9" }
+    ]
+  },
+  {
+    "id": "basic-046-two-sum-sorted",
+    "title": "두 수의 합 찾기",
+    "category": "Two Pointers",
+    "level": "Intermediate",
+    "description": "정렬된 배열에서 합이 x가 되는 서로 다른 두 원소가 있는지 판별하세요.",
+    "inputDescription": "첫 줄에 n, 둘째 줄에 오름차순 정렬된 n개의 정수, 셋째 줄에 x가 주어집니다.",
+    "outputDescription": "두 원소의 합으로 x를 만들 수 있으면 YES, 아니면 NO를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "5\n1 2 4 7 11\n9", "output": "YES" }],
+    "testCases": [
+      { "input": "5\n1 2 4 7 11\n9", "output": "YES" },
+      { "input": "5\n1 2 4 7 11\n10", "output": "NO" },
+      { "input": "2\n3 8\n11", "output": "YES" },
+      { "input": "4\n-3 -1 2 5\n1", "output": "YES" }
+    ]
+  },
+  {
+    "id": "basic-047-count-pairs",
+    "title": "합이 K인 쌍",
+    "category": "Two Pointers",
+    "level": "Intermediate",
+    "description": "정렬된 배열에서 합이 k인 서로 다른 인덱스 쌍의 개수를 출력하세요.",
+    "inputDescription": "첫 줄에 n과 k, 둘째 줄에 오름차순 정렬된 n개의 정수가 주어집니다. 값은 모두 다릅니다.",
+    "outputDescription": "합이 k인 쌍의 개수를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, k;\n    cin >> n >> k;\n    return 0;\n}\n",
+    "samples": [{ "input": "6 10\n1 2 3 7 8 9", "output": "2" }],
+    "testCases": [
+      { "input": "6 10\n1 2 3 7 8 9", "output": "2" },
+      { "input": "5 5\n1 2 3 4 5", "output": "2" },
+      { "input": "4 100\n10 20 30 40", "output": "0" }
+    ]
+  },
+  {
+    "id": "basic-048-max-window-sum",
+    "title": "연속 K개의 최대합",
+    "category": "Sliding Window",
+    "level": "Intermediate",
+    "description": "배열에서 연속한 k개 원소의 합 중 최댓값을 출력하세요.",
+    "inputDescription": "첫 줄에 n과 k, 둘째 줄에 n개의 정수가 주어집니다.",
+    "outputDescription": "연속한 k개 원소 합의 최댓값을 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, k;\n    cin >> n >> k;\n    return 0;\n}\n",
+    "samples": [{ "input": "6 3\n1 2 3 4 5 6", "output": "15" }],
+    "testCases": [
+      { "input": "6 3\n1 2 3 4 5 6", "output": "15" },
+      { "input": "5 2\n-5 -1 -3 -2 -4", "output": "-4" },
+      { "input": "4 4\n10 20 30 40", "output": "100" }
+    ]
+  },
+  {
+    "id": "basic-049-longest-increasing-run",
+    "title": "가장 긴 증가 구간",
+    "category": "Array",
+    "level": "Intermediate",
+    "description": "인접한 원소가 계속 증가하는 가장 긴 연속 구간의 길이를 출력하세요.",
+    "inputDescription": "첫 줄에 n, 둘째 줄에 n개의 정수가 주어집니다.",
+    "outputDescription": "가장 긴 증가 연속 구간의 길이를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "8\n1 2 3 2 3 4 5 1", "output": "4" }],
+    "testCases": [
+      { "input": "8\n1 2 3 2 3 4 5 1", "output": "4" },
+      { "input": "5\n5 4 3 2 1", "output": "1" },
+      { "input": "6\n1 2 3 4 5 6", "output": "6" }
+    ]
+  },
+  {
+    "id": "basic-050-deduplicate-sorted",
+    "title": "중복 제거하기",
+    "category": "Array",
+    "level": "Intermediate",
+    "description": "정렬된 배열에서 중복을 제거한 결과를 출력하세요.",
+    "inputDescription": "첫 줄에 n, 둘째 줄에 오름차순 정렬된 n개의 정수가 주어집니다.",
+    "outputDescription": "중복을 제거한 수들을 공백으로 구분해 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "7\n1 1 2 2 2 3 4", "output": "1 2 3 4" }],
+    "testCases": [
+      { "input": "7\n1 1 2 2 2 3 4", "output": "1 2 3 4" },
+      { "input": "4\n5 5 5 5", "output": "5" },
+      { "input": "5\n-2 -2 0 1 1", "output": "-2 0 1" }
+    ]
+  },
+  {
+    "id": "basic-051-dp-climbing",
+    "title": "계단 오르기 경우의 수",
+    "category": "DP",
+    "level": "Intermediate",
+    "description": "한 번에 1칸 또는 2칸 오를 수 있을 때 n번째 계단에 오르는 경우의 수를 출력하세요.",
+    "inputDescription": "첫 줄에 n이 주어집니다. 1 <= n <= 45.",
+    "outputDescription": "경우의 수를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "5", "output": "8" }],
+    "testCases": [
+      { "input": "1", "output": "1" },
+      { "input": "2", "output": "2" },
+      { "input": "5", "output": "8" },
+      { "input": "10", "output": "89" }
+    ]
+  },
+  {
+    "id": "basic-052-dp-tiling",
+    "title": "2xn 타일링",
+    "category": "DP",
+    "level": "Intermediate",
+    "description": "2xn 직사각형을 1x2, 2x1 타일로 채우는 경우의 수를 출력하세요.",
+    "inputDescription": "첫 줄에 n이 주어집니다. 1 <= n <= 45.",
+    "outputDescription": "타일링 경우의 수를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "4", "output": "5" }],
+    "testCases": [
+      { "input": "1", "output": "1" },
+      { "input": "2", "output": "2" },
+      { "input": "4", "output": "5" },
+      { "input": "10", "output": "89" }
+    ]
+  },
+  {
+    "id": "basic-053-min-coin-count",
+    "title": "동전 개수의 최솟값",
+    "category": "Greedy",
+    "level": "Intermediate",
+    "description": "1, 5, 10, 50, 100원 동전으로 금액 n을 만들 때 필요한 동전 개수의 최솟값을 출력하세요.",
+    "inputDescription": "첫 줄에 정수 n이 주어집니다. n은 1 이상이며 1원 단위입니다.",
+    "outputDescription": "필요한 동전 개수의 최솟값을 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "126", "output": "4" }],
+    "testCases": [
+      { "input": "126", "output": "4" },
+      { "input": "99", "output": "9" },
+      { "input": "1000", "output": "10" },
+      { "input": "1", "output": "1" }
+    ]
+  },
+  {
+    "id": "basic-054-interval-overlap",
+    "title": "겹치는 구간 개수",
+    "category": "Sort",
+    "level": "Intermediate",
+    "description": "여러 구간이 주어질 때 한 점에서 동시에 겹치는 구간의 최대 개수를 출력하세요.",
+    "inputDescription": "첫 줄에 n, 다음 n줄에 구간 시작 l과 끝 r이 주어집니다. l <= r.",
+    "outputDescription": "동시에 겹치는 구간의 최대 개수를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "3\n1 5\n2 6\n7 8", "output": "2" }],
+    "testCases": [
+      { "input": "3\n1 5\n2 6\n7 8", "output": "2" },
+      { "input": "4\n1 10\n2 3\n4 5\n6 7", "output": "2" },
+      { "input": "3\n1 3\n3 5\n3 3", "output": "3" }
+    ]
+  },
+  {
+    "id": "basic-055-meeting-room",
+    "title": "회의실 배정 맛보기",
+    "category": "Greedy",
+    "level": "Intermediate",
+    "description": "겹치지 않게 선택할 수 있는 회의의 최대 개수를 출력하세요.",
+    "inputDescription": "첫 줄에 n, 다음 n줄에 회의 시작 시간과 끝 시간이 주어집니다.",
+    "outputDescription": "선택 가능한 회의의 최대 개수를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "4\n1 3\n2 4\n3 5\n5 7", "output": "3" }],
+    "testCases": [
+      { "input": "4\n1 3\n2 4\n3 5\n5 7", "output": "3" },
+      { "input": "3\n1 10\n2 3\n3 4", "output": "2" },
+      { "input": "5\n0 1\n1 2\n2 3\n3 4\n4 5", "output": "5" }
+    ]
+  },
+  {
+    "id": "basic-056-bfs-reachable",
+    "title": "도달 가능한 정점",
+    "category": "Graph",
+    "level": "Intermediate",
+    "description": "무방향 그래프에서 1번 정점으로부터 도달 가능한 정점의 개수를 출력하세요.",
+    "inputDescription": "첫 줄에 n과 m, 다음 m줄에 간선 a b가 주어집니다.",
+    "outputDescription": "1번 정점을 포함하여 도달 가능한 정점의 개수를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, m;\n    cin >> n >> m;\n    return 0;\n}\n",
+    "samples": [{ "input": "5 3\n1 2\n2 3\n4 5", "output": "3" }],
+    "testCases": [
+      { "input": "5 3\n1 2\n2 3\n4 5", "output": "3" },
+      { "input": "4 0", "output": "1" },
+      { "input": "6 5\n1 2\n1 3\n3 4\n5 6\n4 6", "output": "6" }
+    ]
+  },
+  {
+    "id": "basic-057-connected-components",
+    "title": "연결 요소 개수",
+    "category": "Graph",
+    "level": "Intermediate",
+    "description": "무방향 그래프의 연결 요소 개수를 출력하세요.",
+    "inputDescription": "첫 줄에 n과 m, 다음 m줄에 간선 a b가 주어집니다.",
+    "outputDescription": "연결 요소의 개수를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, m;\n    cin >> n >> m;\n    return 0;\n}\n",
+    "samples": [{ "input": "5 3\n1 2\n2 3\n4 5", "output": "2" }],
+    "testCases": [
+      { "input": "5 3\n1 2\n2 3\n4 5", "output": "2" },
+      { "input": "4 0", "output": "4" },
+      { "input": "6 4\n1 2\n2 3\n4 5\n5 6", "output": "2" }
+    ]
+  },
+  {
+    "id": "basic-058-shortest-path-unweighted",
+    "title": "최단 거리 맛보기",
+    "category": "Graph",
+    "level": "Intermediate",
+    "description": "무방향 그래프에서 1번 정점부터 n번 정점까지의 최단 간선 수를 출력하세요.",
+    "inputDescription": "첫 줄에 n과 m, 다음 m줄에 간선 a b가 주어집니다.",
+    "outputDescription": "최단 거리를 출력합니다. 도달할 수 없으면 -1을 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, m;\n    cin >> n >> m;\n    return 0;\n}\n",
+    "samples": [{ "input": "5 5\n1 2\n2 3\n3 5\n1 4\n4 5", "output": "2" }],
+    "testCases": [
+      { "input": "5 5\n1 2\n2 3\n3 5\n1 4\n4 5", "output": "2" },
+      { "input": "4 1\n1 2", "output": "-1" },
+      { "input": "3 2\n1 2\n2 3", "output": "2" }
+    ]
+  },
+  {
+    "id": "basic-059-grid-count",
+    "title": "격자에서 1 세기",
+    "category": "Grid",
+    "level": "Intermediate",
+    "description": "n x m 격자에서 문자 '1'의 개수를 출력하세요.",
+    "inputDescription": "첫 줄에 n과 m, 다음 n줄에 0과 1로 이루어진 문자열이 주어집니다.",
+    "outputDescription": "격자에 있는 1의 개수를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, m;\n    cin >> n >> m;\n    return 0;\n}\n",
+    "samples": [{ "input": "3 4\n1010\n1110\n0001", "output": "6" }],
+    "testCases": [
+      { "input": "3 4\n1010\n1110\n0001", "output": "6" },
+      { "input": "2 2\n00\n00", "output": "0" },
+      { "input": "1 5\n11111", "output": "5" }
+    ]
+  },
+  {
+    "id": "basic-060-grid-islands",
+    "title": "섬의 개수 맛보기",
+    "category": "Grid",
+    "level": "Intermediate",
+    "description": "0과 1로 이루어진 격자에서 상하좌우로 연결된 1의 덩어리 개수를 출력하세요.",
+    "inputDescription": "첫 줄에 n과 m, 다음 n줄에 0과 1로 이루어진 문자열이 주어집니다.",
+    "outputDescription": "연결된 1의 덩어리 개수를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, m;\n    cin >> n >> m;\n    return 0;\n}\n",
+    "samples": [{ "input": "4 5\n11000\n11010\n00100\n00011", "output": "4" }],
+    "testCases": [
+      { "input": "4 5\n11000\n11010\n00100\n00011", "output": "4" },
+      { "input": "3 3\n111\n101\n111", "output": "1" },
+      { "input": "2 3\n000\n000", "output": "0" }
+    ]
   }
 ]
