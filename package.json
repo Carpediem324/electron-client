@@ -1,0 +1,25 @@
+{
+  "name": "electron-client",
+  "version": "1.0.0",
+  "description": "Simple Electron Client",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "electron": "^44.0.0",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "com.example.electronclient",
+    "productName": "Electron Client",
+    "win": {
+      "target": "nsis"
+    }
+  }
+}
