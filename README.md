@@ -74,7 +74,7 @@ Windows Device Guard, Smart App Control, Microsoft Defender 같은 보안 정책
 또한 실행 파일 생성 위치를 `temp` 폴더가 아닌 아래 경로로 옮겨 차단 가능성을 줄였습니다.
 
 ```text
-C:\Users\<사용자>\AppData\Local\AlgoRun\runner
+%LOCALAPPDATA%\AlgoRun\runner
 ```
 
 ## 프로젝트 구조
@@ -157,6 +157,19 @@ npm.cmd run verify:problems
 ```json
 {"problems":80,"accepted":"Accepted","wrong":"Wrong Answer","compileError":"Compile Error","timeout":"Timeout"}
 ```
+
+## 보안 주의
+
+AlgoRun은 사용자가 작성한 C++ 코드를 로컬 PC에서 컴파일하고 실행하는 앱입니다. 따라서 신뢰할 수 없는 코드를 실행하면 파일 접근, 프로세스 실행, 네트워크 접근 같은 로컬 시스템 동작이 발생할 수 있습니다.
+
+현재 버전은 학습용 로컬 실행 도구이며, 완전한 샌드박스나 컨테이너 격리는 아직 구현되어 있지 않습니다. 공개 배포 전에는 다음 항목을 추가로 검토해야 합니다.
+
+- 실행 파일 코드 서명
+- 사용자 코드 실행 격리
+- 파일 시스템 접근 제한
+- 네트워크 접근 제한
+- 악성 코드 또는 무한 실행 방지 강화
+- 보안 프로그램 오탐 대응 방식 정리
 
 ## 지금까지 개발한 내용 정리
 
