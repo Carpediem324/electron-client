@@ -20,7 +20,7 @@ REM 현재 BAT 파일 위치로 이동
 cd /d "%~dp0"
 
 REM package.json 버전 변경
-call npm.cmd version %VERSION% --no-git-tag-version
+call npm.cmd version %VERSION% --no-git-tag-version --allow-same-version
 
 if errorlevel 1 (
     echo.

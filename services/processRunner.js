@@ -78,7 +78,8 @@ function tryRunExecutable(file, options = {}) {
                 signal: null,
                 timedOut: false,
                 stdout: '',
-                stderr: error.message,
+                stderr: formatProcessError(error),
+                blockedByWindowsSecurity: isWindowsSecurityBlock(error),
                 durationMs: elapsedMs(startedAt)
             });
             return;
@@ -96,17 +97,15 @@ function tryRunExecutable(file, options = {}) {
             });
         };
 
-        timer = setTimeout(() => {
+        timer = setTimeout(async () => {
             timedOut = true;
-            killProcessTree(child.pid);
-            setTimeout(() => {
-                finish({
-                    ok: false,
-                    code: null,
-                    signal: 'SIGTERM',
-                    timedOut: true
-                });
-            }, 250);
+            await killProcessTree(child.pid);
+            finish({
+                ok: false,
+                code: null,
+                signal: 'SIGTERM',
+                timedOut: true
+            });
         }, options.timeoutMs || 5000);
 
         child.stdout.on('data', (chunk) => {
@@ -123,7 +122,8 @@ function tryRunExecutable(file, options = {}) {
                 code: error.code || 1,
                 signal: null,
                 timedOut: false,
-                stderr: stderr || error.message
+                stderr: stderr || formatProcessError(error),
+                blockedByWindowsSecurity: isWindowsSecurityBlock(error)
             });
         });
 
@@ -132,7 +132,8 @@ function tryRunExecutable(file, options = {}) {
                 ok: code === 0 && !timedOut,
                 code,
                 signal,
-                timedOut
+                timedOut,
+                blockedByWindowsSecurity: isWindowsSecurityExit(code, stderr)
             });
         });
 
@@ -141,11 +142,12 @@ function tryRunExecutable(file, options = {}) {
 }
 
 function killProcessTree(pid) {
-    if (!pid) return;
+    if (!pid) return Promise.resolve();
 
     if (process.platform === 'win32') {
-        execFile('taskkill', ['/PID', String(pid), '/T', '/F'], { windowsHide: true }, () => {});
-        return;
+        return new Promise((resolve) => {
+            execFile('taskkill', ['/PID', String(pid), '/T', '/F'], { windowsHide: true }, () => resolve());
+        });
     }
 
     try {
@@ -153,6 +155,8 @@ function killProcessTree(pid) {
     } catch {
         // Process may already have exited.
     }
+
+    return Promise.resolve();
 }
 
 function elapsedMs(startedAt) {
@@ -165,6 +169,41 @@ function delay(ms) {
 
 function quoteWindowsCommandPath(file) {
     return `"${String(file).replaceAll('"', '""')}"`;
+}
+
+function formatProcessError(error) {
+    if (isWindowsSecurityBlock(error)) {
+        return [
+            'Windows blocked the compiled program before AlgoRun could execute it.',
+            'This can happen when Smart App Control or Microsoft Defender blocks a newly generated executable.',
+            error.message
+        ].join('\n');
+    }
+
+    return error.message;
+}
+
+function isWindowsSecurityBlock(error) {
+    if (process.platform !== 'win32') return false;
+
+    const code = String(error?.code || '').toUpperCase();
+    const message = String(error?.message || '');
+
+    return (
+        code === 'EACCES' ||
+        code === 'EPERM' ||
+        code === 'UNKNOWN' ||
+        /access is denied|operation did not complete|blocked|unsafe|smart app control|device guard/i.test(message)
+    );
+}
+
+function isWindowsSecurityExit(code, stderr) {
+    if (process.platform !== 'win32') return false;
+
+    return (
+        code === 1260 ||
+        /smart app control|device guard|blocked|unsafe|operation did not complete/i.test(String(stderr || ''))
+    );
 }
 
 module.exports = {

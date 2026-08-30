@@ -90,7 +90,8 @@ textarea {
 .status-compile-error,
 .status-runtime-error,
 .status-timeout,
-.status-wrong-answer {
+.status-wrong-answer,
+.status-blocked-by-windows {
     color: var(--danger);
 }
 

@@ -13,7 +13,11 @@ async function compileAndRun(source, input, options = {}) {
         return compiled.result;
     }
 
-    return runCompiled(compiled, input);
+    try {
+        return await runCompiled(compiled, input);
+    } finally {
+        await cleanupWorkDir(compiled.workDir);
+    }
 }
 
 async function judgeSource(source, testCases, options = {}) {
@@ -31,42 +35,46 @@ async function judgeSource(source, testCases, options = {}) {
     const cases = [];
     let totalDurationMs = compiled.result.durationMs;
 
-    for (let index = 0; index < testCases.length; index += 1) {
-        const testCase = testCases[index];
-        const run = await runCompiled(compiled, testCase.input);
-        totalDurationMs += run.durationMs || 0;
+    try {
+        for (let index = 0; index < testCases.length; index += 1) {
+            const testCase = testCases[index];
+            const run = await runCompiled(compiled, testCase.input);
+            totalDurationMs += run.durationMs || 0;
 
-        const actual = normalizeOutput(run.stdout);
-        const expected = normalizeOutput(testCase.output);
-        const passed = run.status === 'Success' && actual === expected;
+            const actual = normalizeOutput(run.stdout);
+            const expected = normalizeOutput(testCase.output);
+            const passed = run.status === 'Success' && actual === expected;
 
-        cases.push({
-            index: index + 1,
-            name: testCase.name || `Case ${index + 1}`,
-            status: passed ? 'Passed' : run.status === 'Success' ? 'Wrong Answer' : run.status,
-            input: testCase.input,
-            expected: testCase.output,
-            actual: run.stdout,
-            stderr: run.stderr,
-            durationMs: run.durationMs
-        });
+            cases.push({
+                index: index + 1,
+                name: testCase.name || `Case ${index + 1}`,
+                status: passed ? 'Passed' : run.status === 'Success' ? 'Wrong Answer' : run.status,
+                input: testCase.input,
+                expected: testCase.output,
+                actual: run.stdout,
+                stderr: run.stderr,
+                durationMs: run.durationMs
+            });
 
-        if (!passed) {
-            return {
-                status: cases[cases.length - 1].status,
-                output: formatJudgeOutput(cases),
-                durationMs: totalDurationMs,
-                cases
-            };
+            if (!passed) {
+                return {
+                    status: cases[cases.length - 1].status,
+                    output: formatJudgeOutput(cases),
+                    durationMs: totalDurationMs,
+                    cases
+                };
+            }
         }
-    }
 
-    return {
-        status: 'Accepted',
-        output: formatJudgeOutput(cases),
-        durationMs: totalDurationMs,
-        cases
-    };
+        return {
+            status: 'Accepted',
+            output: formatJudgeOutput(cases),
+            durationMs: totalDurationMs,
+            cases
+        };
+    } finally {
+        await cleanupWorkDir(compiled.workDir);
+    }
 }
 
 async function compileSource(source, options = {}, workDirName) {
@@ -94,17 +102,18 @@ async function compileSource(source, options = {}, workDirName) {
 
     const workDir = await prepareWorkDir(electronApp, options.tempRoot, workDirName);
     const sourcePath = path.join(workDir, 'main.cpp');
-    const exePath = path.join(workDir, 'main.exe');
+    const exePath = path.join(workDir, 'algorun-user-program.exe');
     await fs.writeFile(sourcePath, source, 'utf8');
 
     const env = buildToolchainEnv(compilerRoot);
+    const exeFileName = path.basename(exePath);
     const compile = await runFile(gppPath, [
         'main.cpp',
         '-std=c++17',
         '-O2',
         '-fdiagnostics-color=never',
         '-o',
-        'main.exe'
+        exeFileName
     ], {
         cwd: workDir,
         env,
@@ -112,6 +121,8 @@ async function compileSource(source, options = {}, workDirName) {
     });
 
     if (!compile.ok) {
+        await cleanupWorkDir(workDir);
+
         return {
             ok: false,
             result: {
@@ -152,13 +163,13 @@ async function runCompiled(compiled, input) {
         timeoutMs: RUN_TIMEOUT_MS
     });
 
-    const status = run.timedOut ? 'Timeout' : (run.ok ? 'Success' : 'Runtime Error');
+    const status = getRunStatus(run);
 
     return {
         status,
         stdout: run.stdout,
         stderr: run.stderr,
-        output: status === 'Success' ? run.stdout : (run.stderr || run.stdout),
+        output: formatRunOutput(status, run),
         durationMs: run.durationMs,
         compilerPath: compiled.compilerPath,
         workDir: compiled.workDir
@@ -168,17 +179,17 @@ async function runCompiled(compiled, input) {
 async function prepareWorkDir(electronApp, tempRoot, workDirName = 'algorun') {
     const baseDir = tempRoot || getDefaultTempRoot(electronApp);
     const workDir = path.join(baseDir, workDirName);
-    await fs.rm(workDir, { recursive: true, force: true });
+    await fs.rm(workDir, { recursive: true, force: true, maxRetries: 5, retryDelay: 250 });
     await fs.mkdir(workDir, { recursive: true });
     return workDir;
 }
 
 function getDefaultTempRoot(electronApp) {
     if (process.platform === 'win32' && process.env.LOCALAPPDATA) {
-        return path.join(process.env.LOCALAPPDATA, 'AlgoRun', 'temp');
+        return path.join(process.env.LOCALAPPDATA, 'AlgoRun', 'runner');
     }
 
-    return path.join(electronApp.getPath('userData'), 'temp');
+    return path.join(electronApp.getPath('userData'), 'runner');
 }
 
 function buildToolchainEnv(compilerRoot) {
@@ -217,6 +228,43 @@ function formatJudgeOutput(cases) {
 
         return lines.join('\n');
     }).join('\n\n');
+}
+
+async function cleanupWorkDir(workDir) {
+    if (!workDir) return;
+
+    try {
+        await fs.rm(workDir, { recursive: true, force: true, maxRetries: 3, retryDelay: 150 });
+    } catch {
+        // Windows security scanners can briefly hold generated executables.
+    }
+}
+
+function getRunStatus(run) {
+    if (run.timedOut) return 'Timeout';
+    if (run.ok) return 'Success';
+    if (run.blockedByWindowsSecurity) return 'Blocked by Windows';
+    return 'Runtime Error';
+}
+
+function formatRunOutput(status, run) {
+    if (status === 'Success') {
+        return run.stdout;
+    }
+
+    if (status === 'Blocked by Windows') {
+        return [
+            'Windows Smart App Control or Microsoft Defender blocked the compiled C++ program.',
+            '',
+            'AlgoRun successfully compiled your code, but Windows refused to launch the generated executable.',
+            'For local development, close any half-built AlgoRun process and run the installed app from a stable folder.',
+            'For public distribution, code-signing the AlgoRun installer/app is the proper long-term fix.',
+            '',
+            run.stderr || run.stdout || ''
+        ].join('\n').trimEnd();
+    }
+
+    return run.stderr || run.stdout;
 }
 
 module.exports = {
