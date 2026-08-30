@@ -166,11 +166,19 @@ async function runCompiled(compiled, input) {
 }
 
 async function prepareWorkDir(electronApp, tempRoot, workDirName = 'algorun') {
-    const baseDir = tempRoot || path.join(electronApp.getPath('userData'), 'temp');
+    const baseDir = tempRoot || getDefaultTempRoot(electronApp);
     const workDir = path.join(baseDir, workDirName);
     await fs.rm(workDir, { recursive: true, force: true });
     await fs.mkdir(workDir, { recursive: true });
     return workDir;
+}
+
+function getDefaultTempRoot(electronApp) {
+    if (process.platform === 'win32' && process.env.LOCALAPPDATA) {
+        return path.join(process.env.LOCALAPPDATA, 'AlgoRun', 'temp');
+    }
+
+    return path.join(electronApp.getPath('userData'), 'temp');
 }
 
 function buildToolchainEnv(compilerRoot) {

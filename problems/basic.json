@@ -981,5 +981,325 @@
       { "input": "3 3\n111\n101\n111", "output": "1" },
       { "input": "2 3\n000\n000", "output": "0" }
     ]
+  },
+  {
+    "id": "basic-061-dfs-order",
+    "title": "DFS 방문 순서",
+    "category": "DFS",
+    "level": "Beginner",
+    "description": "무방향 그래프에서 1번 정점부터 DFS를 수행했을 때의 방문 순서를 출력하세요. 인접 정점은 번호가 작은 순서대로 방문합니다.",
+    "inputDescription": "첫 줄에 정점 수 n과 간선 수 m이 주어집니다. 다음 m줄에 간선 a b가 주어집니다.",
+    "outputDescription": "DFS 방문 순서를 공백으로 구분해 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, m;\n    cin >> n >> m;\n    return 0;\n}\n",
+    "samples": [{ "input": "5 4\n1 2\n1 3\n2 4\n3 5", "output": "1 2 4 3 5" }],
+    "testCases": [
+      { "input": "5 4\n1 2\n1 3\n2 4\n3 5", "output": "1 2 4 3 5" },
+      { "input": "4 2\n1 4\n1 2", "output": "1 2 4" },
+      { "input": "3 0", "output": "1" }
+    ]
+  },
+  {
+    "id": "basic-062-bfs-order",
+    "title": "BFS 방문 순서",
+    "category": "BFS",
+    "level": "Beginner",
+    "description": "무방향 그래프에서 1번 정점부터 BFS를 수행했을 때의 방문 순서를 출력하세요. 인접 정점은 번호가 작은 순서대로 방문합니다.",
+    "inputDescription": "첫 줄에 정점 수 n과 간선 수 m이 주어집니다. 다음 m줄에 간선 a b가 주어집니다.",
+    "outputDescription": "BFS 방문 순서를 공백으로 구분해 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, m;\n    cin >> n >> m;\n    return 0;\n}\n",
+    "samples": [{ "input": "5 4\n1 2\n1 3\n2 4\n3 5", "output": "1 2 3 4 5" }],
+    "testCases": [
+      { "input": "5 4\n1 2\n1 3\n2 4\n3 5", "output": "1 2 3 4 5" },
+      { "input": "4 2\n1 4\n1 2", "output": "1 2 4" },
+      { "input": "3 0", "output": "1" }
+    ]
+  },
+  {
+    "id": "basic-063-reachable-from-start",
+    "title": "시작점에서 갈 수 있는 정점",
+    "category": "DFS/BFS",
+    "level": "Beginner",
+    "description": "무방향 그래프와 시작 정점 s가 주어질 때 s에서 도달 가능한 정점 수를 출력하세요.",
+    "inputDescription": "첫 줄에 n, m, s가 주어집니다. 다음 m줄에 간선 a b가 주어집니다.",
+    "outputDescription": "s에서 도달 가능한 정점 수를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, m, s;\n    cin >> n >> m >> s;\n    return 0;\n}\n",
+    "samples": [{ "input": "6 4 2\n1 2\n2 3\n4 5\n5 6", "output": "3" }],
+    "testCases": [
+      { "input": "6 4 2\n1 2\n2 3\n4 5\n5 6", "output": "3" },
+      { "input": "5 0 4", "output": "1" },
+      { "input": "5 4 5\n1 2\n2 3\n3 4\n4 5", "output": "5" }
+    ]
+  },
+  {
+    "id": "basic-064-component-size",
+    "title": "연결 요소의 크기",
+    "category": "DFS/BFS",
+    "level": "Beginner",
+    "description": "무방향 그래프와 정점 s가 주어질 때, s가 속한 연결 요소의 크기를 출력하세요.",
+    "inputDescription": "첫 줄에 n, m, s가 주어집니다. 다음 m줄에 간선 a b가 주어집니다.",
+    "outputDescription": "s가 속한 연결 요소의 정점 수를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, m, s;\n    cin >> n >> m >> s;\n    return 0;\n}\n",
+    "samples": [{ "input": "7 4 6\n1 2\n2 3\n4 5\n6 7", "output": "2" }],
+    "testCases": [
+      { "input": "7 4 6\n1 2\n2 3\n4 5\n6 7", "output": "2" },
+      { "input": "4 3 1\n1 2\n2 3\n3 4", "output": "4" },
+      { "input": "5 1 5\n1 2", "output": "1" }
+    ]
+  },
+  {
+    "id": "basic-065-largest-component",
+    "title": "가장 큰 연결 요소",
+    "category": "DFS/BFS",
+    "level": "Intermediate",
+    "description": "무방향 그래프의 연결 요소들 중 가장 큰 요소의 크기를 출력하세요.",
+    "inputDescription": "첫 줄에 n과 m이 주어집니다. 다음 m줄에 간선 a b가 주어집니다.",
+    "outputDescription": "가장 큰 연결 요소의 정점 수를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, m;\n    cin >> n >> m;\n    return 0;\n}\n",
+    "samples": [{ "input": "7 4\n1 2\n2 3\n4 5\n6 7", "output": "3" }],
+    "testCases": [
+      { "input": "7 4\n1 2\n2 3\n4 5\n6 7", "output": "3" },
+      { "input": "5 0", "output": "1" },
+      { "input": "6 5\n1 2\n2 3\n3 4\n4 5\n5 6", "output": "6" }
+    ]
+  },
+  {
+    "id": "basic-066-count-islands-8dir",
+    "title": "대각선까지 이어진 섬",
+    "category": "Grid DFS/BFS",
+    "level": "Intermediate",
+    "description": "0과 1로 이루어진 격자에서 상하좌우와 대각선까지 연결된 1의 덩어리 개수를 출력하세요.",
+    "inputDescription": "첫 줄에 n과 m이 주어지고, 다음 n줄에 0과 1로 이루어진 문자열이 주어집니다.",
+    "outputDescription": "8방향으로 연결된 섬의 개수를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, m;\n    cin >> n >> m;\n    return 0;\n}\n",
+    "samples": [{ "input": "3 3\n101\n010\n101", "output": "1" }],
+    "testCases": [
+      { "input": "3 3\n101\n010\n101", "output": "1" },
+      { "input": "4 5\n11000\n11010\n00100\n00011", "output": "2" },
+      { "input": "2 3\n100\n001", "output": "2" }
+    ]
+  },
+  {
+    "id": "basic-067-largest-island",
+    "title": "가장 큰 섬의 넓이",
+    "category": "Grid DFS/BFS",
+    "level": "Intermediate",
+    "description": "0과 1로 이루어진 격자에서 상하좌우로 연결된 1의 덩어리 중 가장 큰 넓이를 출력하세요.",
+    "inputDescription": "첫 줄에 n과 m이 주어지고, 다음 n줄에 0과 1로 이루어진 문자열이 주어집니다.",
+    "outputDescription": "가장 큰 섬의 칸 수를 출력합니다. 섬이 없으면 0을 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, m;\n    cin >> n >> m;\n    return 0;\n}\n",
+    "samples": [{ "input": "4 5\n11000\n11100\n00110\n00011", "output": "5" }],
+    "testCases": [
+      { "input": "4 5\n11000\n11100\n00110\n00011", "output": "5" },
+      { "input": "2 2\n00\n00", "output": "0" },
+      { "input": "3 4\n1011\n1011\n1110", "output": "8" }
+    ]
+  },
+  {
+    "id": "basic-068-maze-shortest-path",
+    "title": "미로 최단거리",
+    "category": "Grid BFS",
+    "level": "Intermediate",
+    "description": "0은 벽, 1은 길인 격자에서 왼쪽 위에서 오른쪽 아래까지 가는 최단 거리를 구하세요.",
+    "inputDescription": "첫 줄에 n과 m이 주어지고, 다음 n줄에 0과 1로 이루어진 문자열이 주어집니다.",
+    "outputDescription": "시작 칸과 도착 칸을 모두 포함한 최단 거리 칸 수를 출력합니다. 갈 수 없으면 -1을 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, m;\n    cin >> n >> m;\n    return 0;\n}\n",
+    "samples": [{ "input": "4 4\n1111\n0001\n1111\n1001", "output": "7" }],
+    "testCases": [
+      { "input": "4 4\n1111\n0001\n1111\n1001", "output": "7" },
+      { "input": "3 3\n111\n010\n111", "output": "5" },
+      { "input": "2 2\n10\n01", "output": "-1" }
+    ]
+  },
+  {
+    "id": "basic-069-tomato-day",
+    "title": "토마토 익는 날",
+    "category": "Grid BFS",
+    "level": "Intermediate",
+    "description": "익은 토마토가 하루마다 상하좌우 인접한 안 익은 토마토를 익힐 때, 모두 익는 데 걸리는 최소 일수를 출력하세요.",
+    "inputDescription": "첫 줄에 n과 m이 주어집니다. 다음 n줄에 m개의 정수가 주어집니다. 1은 익음, 0은 안 익음, -1은 빈칸입니다.",
+    "outputDescription": "모두 익는 최소 일수를 출력합니다. 불가능하면 -1을 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, m;\n    cin >> n >> m;\n    return 0;\n}\n",
+    "samples": [{ "input": "3 4\n1 0 0 0\n0 0 -1 0\n0 0 0 0", "output": "5" }],
+    "testCases": [
+      { "input": "3 4\n1 0 0 0\n0 0 -1 0\n0 0 0 0", "output": "5" },
+      { "input": "2 2\n1 1\n1 1", "output": "0" },
+      { "input": "3 3\n1 -1 0\n-1 -1 0\n0 0 0", "output": "-1" }
+    ]
+  },
+  {
+    "id": "basic-070-knight-moves",
+    "title": "나이트 이동",
+    "category": "Grid BFS",
+    "level": "Intermediate",
+    "description": "체스판에서 나이트가 시작 위치에서 목표 위치까지 이동하는 최소 횟수를 구하세요.",
+    "inputDescription": "첫 줄에 체스판 크기 n이 주어집니다. 둘째 줄에 시작 행, 열이 주어지고 셋째 줄에 목표 행, 열이 주어집니다. 좌표는 0-based입니다.",
+    "outputDescription": "나이트의 최소 이동 횟수를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "8\n0 0\n7 7", "output": "6" }],
+    "testCases": [
+      { "input": "8\n0 0\n7 7", "output": "6" },
+      { "input": "8\n0 0\n1 2", "output": "1" },
+      { "input": "5\n2 2\n2 2", "output": "0" }
+    ]
+  },
+  {
+    "id": "basic-071-bipartite-graph",
+    "title": "이분 그래프 판별",
+    "category": "BFS/DFS",
+    "level": "Advanced",
+    "description": "무방향 그래프가 이분 그래프인지 판별하세요.",
+    "inputDescription": "첫 줄에 n과 m이 주어집니다. 다음 m줄에 간선 a b가 주어집니다.",
+    "outputDescription": "이분 그래프이면 YES, 아니면 NO를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, m;\n    cin >> n >> m;\n    return 0;\n}\n",
+    "samples": [{ "input": "4 4\n1 2\n2 3\n3 4\n4 1", "output": "YES" }],
+    "testCases": [
+      { "input": "4 4\n1 2\n2 3\n3 4\n4 1", "output": "YES" },
+      { "input": "3 3\n1 2\n2 3\n3 1", "output": "NO" },
+      { "input": "5 3\n1 2\n3 4\n4 5", "output": "YES" }
+    ]
+  },
+  {
+    "id": "basic-072-cycle-undirected",
+    "title": "무방향 그래프 사이클",
+    "category": "DFS",
+    "level": "Advanced",
+    "description": "무방향 그래프에 사이클이 존재하는지 판별하세요.",
+    "inputDescription": "첫 줄에 n과 m이 주어집니다. 다음 m줄에 간선 a b가 주어집니다.",
+    "outputDescription": "사이클이 있으면 YES, 없으면 NO를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, m;\n    cin >> n >> m;\n    return 0;\n}\n",
+    "samples": [{ "input": "4 4\n1 2\n2 3\n3 1\n3 4", "output": "YES" }],
+    "testCases": [
+      { "input": "4 4\n1 2\n2 3\n3 1\n3 4", "output": "YES" },
+      { "input": "5 4\n1 2\n2 3\n3 4\n4 5", "output": "NO" },
+      { "input": "6 3\n1 2\n3 4\n4 5", "output": "NO" }
+    ]
+  },
+  {
+    "id": "basic-073-tree-check",
+    "title": "트리 판별",
+    "category": "DFS/BFS",
+    "level": "Intermediate",
+    "description": "무방향 그래프가 하나의 트리인지 판별하세요.",
+    "inputDescription": "첫 줄에 n과 m이 주어집니다. 다음 m줄에 간선 a b가 주어집니다.",
+    "outputDescription": "트리이면 YES, 아니면 NO를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, m;\n    cin >> n >> m;\n    return 0;\n}\n",
+    "samples": [{ "input": "5 4\n1 2\n1 3\n3 4\n3 5", "output": "YES" }],
+    "testCases": [
+      { "input": "5 4\n1 2\n1 3\n3 4\n3 5", "output": "YES" },
+      { "input": "4 4\n1 2\n2 3\n3 1\n3 4", "output": "NO" },
+      { "input": "4 2\n1 2\n3 4", "output": "NO" }
+    ]
+  },
+  {
+    "id": "basic-074-tree-parent",
+    "title": "트리의 부모 찾기",
+    "category": "BFS/DFS",
+    "level": "Intermediate",
+    "description": "1번 정점을 루트로 하는 트리에서 2번부터 n번까지 각 정점의 부모를 출력하세요.",
+    "inputDescription": "첫 줄에 n이 주어집니다. 다음 n-1줄에 트리의 간선 a b가 주어집니다.",
+    "outputDescription": "2번 정점부터 n번 정점까지 부모 번호를 한 줄에 하나씩 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "5\n1 2\n1 3\n3 4\n3 5", "output": "1\n1\n3\n3" }],
+    "testCases": [
+      { "input": "5\n1 2\n1 3\n3 4\n3 5", "output": "1\n1\n3\n3" },
+      { "input": "4\n2 1\n3 2\n4 2", "output": "1\n2\n2" },
+      { "input": "2\n1 2", "output": "1" }
+    ]
+  },
+  {
+    "id": "basic-075-tree-depth",
+    "title": "트리 깊이 구하기",
+    "category": "BFS/DFS",
+    "level": "Intermediate",
+    "description": "1번 정점을 루트로 하는 트리에서 각 정점의 깊이를 출력하세요. 루트의 깊이는 0입니다.",
+    "inputDescription": "첫 줄에 n이 주어집니다. 다음 n-1줄에 트리의 간선 a b가 주어집니다.",
+    "outputDescription": "1번부터 n번까지 각 정점의 깊이를 공백으로 구분해 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "5\n1 2\n1 3\n3 4\n3 5", "output": "0 1 1 2 2" }],
+    "testCases": [
+      { "input": "5\n1 2\n1 3\n3 4\n3 5", "output": "0 1 1 2 2" },
+      { "input": "4\n1 2\n2 3\n3 4", "output": "0 1 2 3" },
+      { "input": "3\n2 1\n2 3", "output": "0 1 2" }
+    ]
+  },
+  {
+    "id": "basic-076-tree-diameter-simple",
+    "title": "트리 지름 맛보기",
+    "category": "BFS/DFS",
+    "level": "Advanced",
+    "description": "간선의 가중치가 모두 1인 트리의 지름 길이를 출력하세요.",
+    "inputDescription": "첫 줄에 n이 주어집니다. 다음 n-1줄에 트리의 간선 a b가 주어집니다.",
+    "outputDescription": "트리에서 가장 먼 두 정점 사이의 간선 수를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    return 0;\n}\n",
+    "samples": [{ "input": "5\n1 2\n2 3\n3 4\n3 5", "output": "3" }],
+    "testCases": [
+      { "input": "5\n1 2\n2 3\n3 4\n3 5", "output": "3" },
+      { "input": "4\n1 2\n2 3\n3 4", "output": "3" },
+      { "input": "1", "output": "0" }
+    ]
+  },
+  {
+    "id": "basic-077-directed-reachable",
+    "title": "방향 그래프 도달성",
+    "category": "DFS/BFS",
+    "level": "Intermediate",
+    "description": "방향 그래프에서 s에서 t로 갈 수 있는지 판별하세요.",
+    "inputDescription": "첫 줄에 n, m, s, t가 주어집니다. 다음 m줄에 방향 간선 a b가 주어집니다.",
+    "outputDescription": "s에서 t로 갈 수 있으면 YES, 아니면 NO를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, m, s, t;\n    cin >> n >> m >> s >> t;\n    return 0;\n}\n",
+    "samples": [{ "input": "5 4 1 5\n1 2\n2 3\n3 5\n4 5", "output": "YES" }],
+    "testCases": [
+      { "input": "5 4 1 5\n1 2\n2 3\n3 5\n4 5", "output": "YES" },
+      { "input": "4 2 4 1\n1 2\n2 4", "output": "NO" },
+      { "input": "3 2 1 3\n1 2\n2 3", "output": "YES" }
+    ]
+  },
+  {
+    "id": "basic-078-directed-cycle",
+    "title": "방향 그래프 사이클",
+    "category": "DFS",
+    "level": "Advanced",
+    "description": "방향 그래프에 사이클이 존재하는지 판별하세요.",
+    "inputDescription": "첫 줄에 n과 m이 주어집니다. 다음 m줄에 방향 간선 a b가 주어집니다.",
+    "outputDescription": "사이클이 있으면 YES, 없으면 NO를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, m;\n    cin >> n >> m;\n    return 0;\n}\n",
+    "samples": [{ "input": "3 3\n1 2\n2 3\n3 1", "output": "YES" }],
+    "testCases": [
+      { "input": "3 3\n1 2\n2 3\n3 1", "output": "YES" },
+      { "input": "4 3\n1 2\n2 3\n3 4", "output": "NO" },
+      { "input": "5 5\n1 2\n2 3\n3 4\n4 2\n4 5", "output": "YES" }
+    ]
+  },
+  {
+    "id": "basic-079-topological-order-check",
+    "title": "위상 순서 검증",
+    "category": "Graph",
+    "level": "Advanced",
+    "description": "방향 그래프와 정점 순서가 주어질 때, 해당 순서가 올바른 위상 순서인지 판별하세요.",
+    "inputDescription": "첫 줄에 n과 m이 주어집니다. 다음 m줄에 방향 간선 a b가 주어집니다. 마지막 줄에 n개의 정점 순서가 주어집니다.",
+    "outputDescription": "모든 간선 a->b에 대해 a가 b보다 앞에 있으면 YES, 아니면 NO를 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, m;\n    cin >> n >> m;\n    return 0;\n}\n",
+    "samples": [{ "input": "4 3\n1 2\n1 3\n3 4\n1 3 2 4", "output": "YES" }],
+    "testCases": [
+      { "input": "4 3\n1 2\n1 3\n3 4\n1 3 2 4", "output": "YES" },
+      { "input": "4 3\n1 2\n1 3\n3 4\n3 1 2 4", "output": "NO" },
+      { "input": "3 2\n1 2\n2 3\n1 2 3", "output": "YES" }
+    ]
+  },
+  {
+    "id": "basic-080-ice-cave",
+    "title": "얼음 동굴 탈출",
+    "category": "Grid BFS",
+    "level": "Advanced",
+    "description": "격자에서 S에서 E까지 이동하는 최단 거리를 구하세요. '.'과 S, E는 이동 가능하고 '#'은 벽입니다.",
+    "inputDescription": "첫 줄에 n과 m이 주어집니다. 다음 n줄에 격자 문자열이 주어집니다.",
+    "outputDescription": "S에서 E까지의 최소 이동 횟수를 출력합니다. 도달할 수 없으면 -1을 출력합니다.",
+    "starterCode": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, m;\n    cin >> n >> m;\n    return 0;\n}\n",
+    "samples": [{ "input": "4 5\nS...#\n##.#.\n...#.\n.##.E", "output": "7" }],
+    "testCases": [
+      { "input": "4 5\nS...#\n##.#.\n...#.\n.##.E", "output": "7" },
+      { "input": "2 2\nS#\n#E", "output": "-1" },
+      { "input": "1 3\nS.E", "output": "2" }
+    ]
   }
 ]

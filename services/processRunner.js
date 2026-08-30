@@ -35,7 +35,22 @@ function runFile(file, args, options = {}) {
     });
 }
 
-function runExecutable(file, options = {}) {
+async function runExecutable(file, options = {}) {
+    const retries = options.spawnRetries ?? 3;
+
+    for (let attempt = 0; attempt <= retries; attempt += 1) {
+        const result = await tryRunExecutable(file, options);
+        const canRetry = result.code === 'UNKNOWN' && /spawn UNKNOWN/i.test(result.stderr || '');
+
+        if (!canRetry || attempt === retries) {
+            return result;
+        }
+
+        await delay(200 * (attempt + 1));
+    }
+}
+
+function tryRunExecutable(file, options = {}) {
     return new Promise((resolve) => {
         const startedAt = process.hrtime.bigint();
         let stdout = '';
@@ -46,9 +61,13 @@ function runExecutable(file, options = {}) {
         let timer;
 
         try {
-            child = spawn(file, [], {
+            const command = process.platform === 'win32' ? 'cmd.exe' : file;
+            const args = process.platform === 'win32' ? ['/d', '/s', '/c', quoteWindowsCommandPath(file)] : [];
+
+            child = spawn(command, args, {
                 cwd: options.cwd,
                 env: options.env,
+                windowsVerbatimArguments: process.platform === 'win32',
                 windowsHide: true,
                 stdio: ['pipe', 'pipe', 'pipe']
             });
@@ -138,6 +157,14 @@ function killProcessTree(pid) {
 
 function elapsedMs(startedAt) {
     return Number((process.hrtime.bigint() - startedAt) / 1000000n);
+}
+
+function delay(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function quoteWindowsCommandPath(file) {
+    return `"${String(file).replaceAll('"', '""')}"`;
 }
 
 module.exports = {

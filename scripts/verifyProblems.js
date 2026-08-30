@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs/promises');
 const { judgeSource } = require('../services/compilerService');
 const { getProblemForJudge, listProblems } = require('../services/problemService');
 
@@ -20,7 +21,7 @@ int main() {
 
 async function main() {
     const problems = await listProblems();
-    assert(problems.length === 60, `Expected 60 problems, got ${problems.length}`);
+    assert(problems.length === 80, `Expected 80 problems, got ${problems.length}`);
 
     const problem = await getProblemForJudge('basic-001-a-plus-b');
     assert(problem, 'A+B problem was not found');
@@ -32,13 +33,25 @@ async function main() {
     );
 
     const wrong = await judgeSource('int main(){return 0;}', problem.testCases, { app });
-    assert(wrong.status === 'Wrong Answer', `Expected Wrong Answer, got ${wrong.status}`);
+    assert(
+        wrong.status === 'Wrong Answer',
+        `Expected Wrong Answer, got ${wrong.status}: ${JSON.stringify(wrong.cases?.[0] || wrong)}`
+    );
 
     const compileError = await judgeSource('int main( {', problem.testCases, { app });
     assert(compileError.status === 'Compile Error', `Expected Compile Error, got ${compileError.status}`);
 
-    const timeout = await judgeSource('int main(){while(true){}}', problem.testCases, { app });
-    assert(timeout.status === 'Timeout', `Expected Timeout, got ${timeout.status}`);
+    const timeoutRoot = path.join(process.cwd(), '.verify-runtime');
+    await fs.rm(timeoutRoot, { recursive: true, force: true });
+
+    const timeout = await judgeSource('int main(){while(true){}}', problem.testCases, {
+        app,
+        tempRoot: timeoutRoot
+    });
+    assert(
+        timeout.status === 'Timeout',
+        `Expected Timeout, got ${timeout.status}: ${JSON.stringify(timeout.cases?.[0] || timeout)}`
+    );
 
     console.log(JSON.stringify({
         problems: problems.length,
@@ -47,6 +60,8 @@ async function main() {
         compileError: compileError.status,
         timeout: timeout.status
     }));
+
+    await fs.rm(timeoutRoot, { recursive: true, force: true });
 }
 
 function assert(condition, message) {
